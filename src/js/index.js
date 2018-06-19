@@ -19,7 +19,7 @@ $(document).ready(() => {
   setInputEvents();
 });
 
-function drowdownClickHandler() {
+function drowdownClickHandler () {
   $(this).parents('.uitk-select').toggleClass('is-open');
 }
 
