@@ -24,7 +24,8 @@ export const QUESTION_IDS = {
     EDUCATION_PUBLIC_PRIVATE_RADIO: 'eduPublicPrivateInput'
   },
   [LIFESTYLE_PLANS_PAGE]: {
-    MORTGAGE_RENT_RADIO: 'mortgageRentInput'
+    MORTGAGE_RENT_RADIO: 'mortgageRentInput',
+    FOOD: 'foodSliderInput'
   },
   [RETIREMENT_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'
