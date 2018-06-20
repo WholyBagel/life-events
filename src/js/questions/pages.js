@@ -99,6 +99,20 @@ const lifestylePage = {
       type: 'radio',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].MORTGAGE_RENT_RADIO],
       values: HOUSING_OPTIONS_DATA
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD,
+      label: 'Food',
+      show: true,
+      text: 'How much do you spend on Food per year?',
+      info: 'Food',
+      type: 'range',
+      min: '3,500',
+      max: '10,000',
+      change2: function updateSliders2 () {
+        console.log('this worked');
+      },
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     }
   ]
 };

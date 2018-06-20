@@ -11,6 +11,9 @@ export const updateHeroes = (financialData) => {
   salary = salary.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   $('#hero_1 h1').html(salary);
 };
+export const updateSliders = () => {
+  console.log('This is called');
+};
 
 export const showError = (id, msg) => {
   const $currentElement = $(`#${id}`);
