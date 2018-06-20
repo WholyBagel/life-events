@@ -5,11 +5,11 @@ export const updateHeroes = (financialData) => {
   const dataAt65 = financialData.find(item => item.age === 65);
   let netWorthAt65 = Math.round(dataAt65.totalNetworth);
   netWorthAt65 = netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  document.getElementById('hero_3').lastElementChild.innerHTML = netWorthAt65;
+  $('#hero_3 h1').html(netWorthAt65);
   const dataAtCurrent = financialData[0];
   let salary = Math.round(dataAtCurrent.currentAnnualSalary);
   salary = salary.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  document.getElementById('hero_1').lastElementChild.innerHTML = salary;
+  $('#hero_1 h1').html(salary);
 };
 
 export const showError = (id, msg) => {
