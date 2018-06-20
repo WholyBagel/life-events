@@ -8,7 +8,6 @@ import { addOrUpdateInfo } from './util';
 const { OCCUPATIONAL_DATA, EDUCATION_LEVELS } = CONSTANTS;
 const { CAREER_PLANS_PAGE } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
-
 export default {
   [QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN]: (careerId) => {
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN] = careerId;
@@ -64,5 +63,16 @@ export default {
     ];
 
     addOrUpdateInfo(infoItems);
+  },
+  [QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO]: (e) => {
+    state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] = e.target.id;
+    if (state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] === 'Hourly') {
+      const corgi = $('#careerInput').parent().hide();
+      console.log(corgi);
+      // careerPlansPage[questions[id: ]].toggle();
+    } else {
+      const corgi = $('#careerInput').parent().show();
+      console.log(corgi);
+    }
   }
 };

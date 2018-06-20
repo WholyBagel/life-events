@@ -21,7 +21,8 @@ export const QUESTION_IDS = {
   },
   [CAREER_PLANS_PAGE]: {
     CAREER_DROPDOWN: 'careerInput',
-    EDUCATION_PUBLIC_PRIVATE_RADIO: 'eduPublicPrivateInput'
+    EDUCATION_PUBLIC_PRIVATE_RADIO: 'eduPublicPrivateInput',
+    HOURLY_OR_SALARY_RADIO: 'hourlyOrSalaryRadio'
   },
   [LIFESTYLE_PLANS_PAGE]: {
     MORTGAGE_RENT_RADIO: 'mortgageRentInput'
