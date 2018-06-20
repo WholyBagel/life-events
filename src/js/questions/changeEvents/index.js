@@ -1,9 +1,8 @@
 
-/* eslint no-console: "off" */
 import careerPlansPage from './careerPlansPage';
-import initialPlage from './initialPage';
+import initialPage from './initialPage';
 
 export default {
-  ...initialPlage,
+  ...initialPage,
   ...careerPlansPage
 };

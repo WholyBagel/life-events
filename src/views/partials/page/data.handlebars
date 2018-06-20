@@ -1,24 +1,15 @@
 <div id='data' class="small-12 columns card" style="background: #ffffff; height: 24vh; margin-bottom: 2vh;">
 	<div class='row' style="text-align: center; color: white;">
 
+		{{#each (getHeroes)}}
 		<div class="small-4 columns">
-			<div class="" style="background-color: #16b161; height: 20vh; ">
-				<h4 style="color: white; padding-top: 10px;">Title</h4>
-				<h1 style="font-size: 5rem; padding-top: 40px; color: white;">Hero #</h1>
+			<div id="{{id}}" style="background-color: #16b161; height: 20vh; ">
+				<h4 style="color: white; padding-top: 10px;">{{title}}</h4>
+				<h1 style="font-size: 3rem; padding-top: 40px; color: white;">{{defaultValue}}</h1>
 			</div>
 		</div>
-		<div class="small-4 columns">
-			<div class="" style="background-color: #16b161; height: 20vh; ">
-				<h4 style="color: white; padding-top: 10px;">Title</h4>
-				<h1 style="font-size: 5rem; padding-top: 40px; color: white;">Hero #</h1>
-			</div>
-		</div>
-		<div class="small-4 columns">
-			<div class="" style="background-color: #16b161; height: 20vh; ">
-				<h4 style="color: white; padding-top: 10px;">Title</h4>
-				<h1 style="font-size: 5rem; padding-top: 40px; color: white;">Hero #</h1>
-			</div>
-		</div>
+		{{/each}}
+		
 	</div>
 </div>
 </div>
