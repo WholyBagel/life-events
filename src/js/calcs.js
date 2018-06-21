@@ -6,8 +6,10 @@ import d3 from 'd3';
 import CONSTANTS from './questions/constants';
 
 const {
-  OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO
+  OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO, IDs
 } = CONSTANTS;
+const { QUESTION_IDS, PAGE_IDS } = IDs;
+const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
 const { TAX_BRACKETS } = TAX_INFO;
 const MONTHS = 12;
 
@@ -33,6 +35,7 @@ const calculateFunds = () => {
 
   const careerData = createCareerData(careerId);
   const currentSalary = isInCareer(age, careerData.educationLevel) ? careerData.startingCareerSalary : currentAnnualIncome;
+  // currentSalary -= state.ui.values.foodSpending;
   let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, careerData.startingCareerSalary);
   let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', careerData.startingCareerSalary);
 
@@ -44,7 +47,8 @@ const calculateFunds = () => {
       currentAnnualSalary: currentSalary,
       netAnnualIncome: netIncome,
       monthly,
-      totalNetworth: initialFunds + netIncome
+      totalNetworth: initialFunds + netIncome,
+      foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     }];
 
   const workingYears = R.takeLast(DEFAULT_RETIREMENT_AGE - age, R.times(R.identity, DEFAULT_RETIREMENT_AGE + 1));
@@ -65,7 +69,8 @@ const calculateFunds = () => {
       currentAnnualSalary,
       netAnnualIncome,
       monthly,
-      totalNetworth: lastYear.totalNetworth + netAnnualIncome
+      totalNetworth: lastYear.totalNetworth + netAnnualIncome,
+      foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     }];
   }, money)(workingYears);
 

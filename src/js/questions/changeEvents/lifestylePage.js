@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import CONSTANTS from '../constants';
+import { downHeroes } from './util';
 
 // import LIFESTYLE_PLANS_PAGE
 // import { showError, removeError, addOrUpdateInfo, updateHeroes } from './util';
@@ -12,5 +13,6 @@ export default {
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = e.target.value;
     $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD}-value`).html(e.target.value);
+    downHeroes(e.target.value);
   }
 };
