@@ -107,11 +107,9 @@ const lifestylePage = {
       text: 'How much do you spend on Food per year?',
       info: 'Food',
       type: 'range',
-      min: '3,500',
-      max: '10,000',
-      change2: function updateSliders2 () {
-        console.log('this worked');
-      },
+      min: '3500',
+      max: '10000',
+      value: '6750',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     }
   ]

@@ -7,7 +7,6 @@ export const setInputEvents = () => {
       if (question.changeEvent) {
         console.log('Got Here');
         $(`#${question.id}`).change(question.changeEvent);
-        $(`#${question.id}-Sliders`).change(() => console.log('This worked'));
       }
       return question;
     });
