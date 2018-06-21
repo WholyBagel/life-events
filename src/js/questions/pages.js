@@ -117,12 +117,12 @@ const lifestylePage = {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD,
       label: 'Food',
       show: true,
-      text: 'How much do you spend on Food per year?',
+      text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-      min: '3500',
-      max: '10000',
-      value: '6750',
+      min: '65',
+      max: '200',
+      value: '133',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     }
   ]
