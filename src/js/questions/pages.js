@@ -111,6 +111,18 @@ const lifestylePage = {
       max: '10000',
       value: '6750',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN,
+      label: 'Children',
+      show: true,
+      text: 'How many children do you have or plan to have?',
+      info: 'Children',
+      type: 'range',
+      min: '0',
+      max: '16',
+      value: '8',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
     }
   ]
 };
