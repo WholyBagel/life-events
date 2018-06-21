@@ -30,15 +30,13 @@ const calculateFunds = () => {
   // Trying to make the hours/rate changeable
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
-  // console.log(rate);
-  // console.log(hours);
   // Creating their weekly salary
   const weeklySalary = Math.round(hours * rate);
-  console.log(weeklySalary);
-  const monthlySalary = weeklySalary * 54;
-  console.log(monthlySalary);
-  // const currentSalary = monthlySalary * 12;
-  // console.log(currentSalary);
+  console.log(`Weekly Salary ${weeklySalary}`);
+  const annualSalary = Math.round(weeklySalary * 52);
+  console.log(`Annual ${annualSalary}`);
+  const monthlySalary = annualSalary / 12;
+  console.log(`Monthly Salary ${monthlySalary}`);
   const initialFunds = state.ui.values.networthInput || 0;
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
   const careerId = state.ui.values.careerInput || '';

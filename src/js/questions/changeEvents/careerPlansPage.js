@@ -69,9 +69,14 @@ export default {
     if (state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] === 'Hourly') {
       $('#careerInput').parent().hide();
       $('#edu_Private').parent().hide();
+      $('#hourlyRateInput').show();
+      $('#hoursWeeklyInput').show();
       // careerPlansPage[questions[id: ]].toggle();
     } else {
       $('#careerInput').parent().show();
+      $('#edu_Private').parent().show();
+      $('#hourlyRateInput').hide();
+      $('#hoursWeeklyInput').hide();
     }
   },
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]: (e) => {
