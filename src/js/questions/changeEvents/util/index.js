@@ -70,6 +70,7 @@ export const removeError = (id) => {
 };
 
 export const addOrUpdateInfo = (i) => {
+  console.log('got here!', i);
   i.map((item) => {
     const idKey = item.key.replace(/\s/g, '');
     if ($(`#info-row-${idKey}`).length) {
