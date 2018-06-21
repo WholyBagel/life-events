@@ -92,6 +92,27 @@ const careerPlansPage = {
       required: false,
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO],
       values: EDU_PUBLIC_PRIVATE_DATA
+    },
+    // working on now
+    {
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
+      placeholder: 'Rate per Hour',
+      show: false,
+      info: 'Rate',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]
+    },
+    // this too
+    {
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
+      placeholder: 'Hours per Week',
+      // Show isnt working right
+      show: false,
+      info: 'Hours',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]
     }
   ]
 };
@@ -161,7 +182,8 @@ const pages = [
   initialInfoPage,
   careerPlansPage,
   lifestylePage,
-  retirementPlansPage
+  retirementPlansPage,
+  INITIAL_PAGE
 ];
 
 export { setInputEvents, selectInputClickEvent };

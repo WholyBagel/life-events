@@ -59,5 +59,4 @@ export default {
 
     updateHeroes(financialData);
   }
-
 };
