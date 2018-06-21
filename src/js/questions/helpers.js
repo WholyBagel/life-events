@@ -5,6 +5,7 @@ export const setInputEvents = () => {
   state.ui.pages.map((page) => {
     (page.questions || []).map((question) => {
       if (question.changeEvent) {
+        console.log('Got Here');
         $(`#${question.id}`).change(question.changeEvent);
       }
       return question;

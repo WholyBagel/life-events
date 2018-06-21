@@ -25,7 +25,8 @@ export const QUESTION_IDS = {
     HOURLY_OR_SALARY_RADIO: 'hourlyOrSalaryRadio'
   },
   [LIFESTYLE_PLANS_PAGE]: {
-    MORTGAGE_RENT_RADIO: 'mortgageRentInput'
+    MORTGAGE_RENT_RADIO: 'mortgageRentInput',
+    FOOD: 'foodSliderInput'
   },
   [RETIREMENT_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'
