@@ -7,7 +7,9 @@ const {
   WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, RETIREMENT_PLANS_PAGE
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
-const { OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA } = CONSTANTS;
+const {
+  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA
+} = CONSTANTS;
 
 const welcomePage = {
   id: WELCOME_PAGE,
@@ -59,6 +61,17 @@ const careerPlansPage = {
   show: false,
   questions: [
     {
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO,
+      label: 'Hourly or Salary',
+      show: true,
+      placeholder: 'Are you hourly or salary?',
+      info: 'Hourly or Salarly',
+      type: 'radio',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO],
+      values: HOURLY_OR_SALARY_DATA
+    },
+    {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN,
       label: 'Career',
       show: true,
@@ -104,12 +117,12 @@ const lifestylePage = {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD,
       label: 'Food',
       show: true,
-      text: 'How much do you spend on Food per year?',
+      text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-      min: '3500',
-      max: '10000',
-      value: '6750',
+      min: '65',
+      max: '200',
+      value: '133',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     },
     {
