@@ -11,7 +11,9 @@ const DEFAULT_COLLEGE_START_AGE = 18;
 const DEFAULT_RETIREMENT_AGE = 65;
 const DEFAULT_DEATH_AGE = 80;
 const DEFAULT_COLA_ADJ = 0.02;
-
+const DEFAULT_HOURS = 40;
+const DEFAULT_RATE = 7.25;
+// Get Average min wage for state later
 export default {
   IDs,
   OCCUPATIONAL_DATA,
@@ -26,5 +28,7 @@ export default {
   DEFAULT_DEATH_AGE,
   DEFAULT_COLA_ADJ,
   TAX_INFO,
-  HOURLY_OR_SALARY_DATA
+  HOURLY_OR_SALARY_DATA,
+  DEFAULT_HOURS,
+  DEFAULT_RATE
 };

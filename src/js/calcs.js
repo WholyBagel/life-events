@@ -27,11 +27,17 @@ const createChart = () => {
 
 const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
+  // Trying to make the hours/rate changeable
+  // const hours= state.ui.values.ageInput || DEFAULT_HOURS;
+  // const rate = state.ui.values.ageInput || DEFAULT_RATE;
+  // The income to add
+  // const currentSalary= Math.round(hours * rate);
   const initialFunds = state.ui.values.networthInput || 0;
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
   const careerId = state.ui.values.careerInput || '';
 
   const careerData = createCareerData(careerId);
+  // if()
   const currentSalary = isInCareer(age, careerData.educationLevel) ? careerData.startingCareerSalary : currentAnnualIncome;
   let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, careerData.startingCareerSalary);
   let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', careerData.startingCareerSalary);

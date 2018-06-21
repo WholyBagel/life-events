@@ -67,12 +67,11 @@ export default {
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO]: (e) => {
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] = e.target.id;
     if (state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] === 'Hourly') {
-      const corgi = $('#careerInput').parent().hide();
-      console.log(corgi);
+      $('#careerInput').parent().hide();
+      $('#edu_Private').parent().hide();
       // careerPlansPage[questions[id: ]].toggle();
     } else {
-      const corgi = $('#careerInput').parent().show();
-      console.log(corgi);
+      $('#careerInput').parent().show();
     }
   }
 };
