@@ -73,5 +73,17 @@ export default {
     } else {
       $('#careerInput').parent().show();
     }
+  },
+  [QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]: (e) => {
+    const value = parseInt(e.target.value, 10);
+    state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT] = Number.isNaN(value) ? 0 : value;
+    const rate = state.calculateFunds();
+    state.data = { ...state.data, rate };
+  },
+  [QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]: (e) => {
+    const value = parseInt(e.target.value, 10);
+    state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT] = Number.isNaN(value) ? 0 : value;
+    const hours = state.calculateFunds();
+    state.data = { ...state.data, hours };
   }
 };

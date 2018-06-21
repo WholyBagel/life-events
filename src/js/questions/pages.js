@@ -95,21 +95,21 @@ const careerPlansPage = {
     },
     // working on now
     {
-      id: QUESTION_IDS[INITIAL_PAGE].HOUR_RATE_TEXT,
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
       placeholder: 'Rate per Hour',
       info: 'Rate',
       type: 'text',
       required: true,
-      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].HOUR_RATE_TEXT]
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]
     },
     // this too
     {
-      id: QUESTION_IDS[INITIAL_PAGE].HOURS_WEEKLY_TEXT,
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
       placeholder: 'Hours per Week',
       info: 'Hours',
       type: 'text',
       required: true,
-      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].HOURS_WEEKLY_TEXT]
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]
     }
   ]
 };
@@ -155,7 +155,8 @@ const pages = [
   initialInfoPage,
   careerPlansPage,
   lifestylePage,
-  retirementPlansPage
+  retirementPlansPage,
+  INITIAL_PAGE
 ];
 
 export { setInputEvents, selectInputClickEvent };

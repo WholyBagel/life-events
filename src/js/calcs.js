@@ -6,7 +6,7 @@ import d3 from 'd3';
 import CONSTANTS from './questions/constants';
 
 const {
-  OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO
+  OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO, DEFAULT_RATE, DEFAULT_HOURS
 } = CONSTANTS;
 const { TAX_BRACKETS } = TAX_INFO;
 const MONTHS = 12;
@@ -28,16 +28,22 @@ const createChart = () => {
 const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
   // Trying to make the hours/rate changeable
-  // const hours= state.ui.values.ageInput || DEFAULT_HOURS;
-  // const rate = state.ui.values.ageInput || DEFAULT_RATE;
-  // The income to add
-  // const currentSalary= Math.round(hours * rate);
+  const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
+  const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
+  // console.log(rate);
+  // console.log(hours);
+  // Creating their weekly salary
+  const weeklySalary = Math.round(hours * rate);
+  console.log(weeklySalary);
+  const monthlySalary = weeklySalary * 54;
+  console.log(monthlySalary);
+  // const currentSalary = monthlySalary * 12;
+  // console.log(currentSalary);
   const initialFunds = state.ui.values.networthInput || 0;
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
   const careerId = state.ui.values.careerInput || '';
 
   const careerData = createCareerData(careerId);
-  // if()
   const currentSalary = isInCareer(age, careerData.educationLevel) ? careerData.startingCareerSalary : currentAnnualIncome;
   let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, careerData.startingCareerSalary);
   let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', careerData.startingCareerSalary);
@@ -61,7 +67,6 @@ const calculateFunds = () => {
     const inCareer = isInCareer(currentAge, careerData.educationLevel);
     // Currently still using 'year' as # years after the age entered. Not the # of years starting the career
     const currentAnnualSalary = inCareer ? calcSalaryWithCOLA(careerData.startingCareerSalary, year) : calcSalaryWithCOLA(currentAnnualIncome, year);
-
     federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, currentAnnualSalary);
     stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', currentAnnualSalary);
     const netAnnualIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, currentAnnualSalary);

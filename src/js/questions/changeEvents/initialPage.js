@@ -58,16 +58,5 @@ export default {
     state.data = { ...state.data, financialData };
 
     updateHeroes(financialData);
-  },
-  [QUESTION_IDS[INITIAL_PAGE].HOUR_RATE_TEXT]: (e) => {
-    const value = parseInt(e.target.value, 10);
-    state.ui.values[QUESTION_IDS[INITIAL_PAGE].HOUR_RATE_TEXT] = Number.isNaN(value) ? 0 : value;
-
-    const financialData = state.calculateFunds();
-
-    state.data = { ...state.data, financialData };
-
-    updateHeroes(financialData);
   }
-
 };
