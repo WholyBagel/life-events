@@ -27,7 +27,8 @@ export const QUESTION_IDS = {
     HOURS_WEEKLY_TEXT: 'hoursWeeklyInput'
   },
   [LIFESTYLE_PLANS_PAGE]: {
-    MORTGAGE_RENT_RADIO: 'mortgageRentInput'
+    MORTGAGE_RENT_RADIO: 'mortgageRentInput',
+    FOOD: 'foodSliderInput'
   },
   [RETIREMENT_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'
