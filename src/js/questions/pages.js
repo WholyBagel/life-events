@@ -93,6 +93,27 @@ const careerPlansPage = {
       required: false,
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO],
       values: EDU_PUBLIC_PRIVATE_DATA
+    },
+    // working on now
+    {
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
+      placeholder: 'Rate per Hour',
+      show: false,
+      info: 'Rate',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]
+    },
+    // this too
+    {
+      id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
+      placeholder: 'Hours per Week',
+      // Show isnt working right
+      show: false,
+      info: 'Hours',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]
     }
   ]
 };
@@ -113,6 +134,30 @@ const lifestylePage = {
       type: 'radio',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].MORTGAGE_RENT_RADIO],
       values: HOUSING_OPTIONS_DATA
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD,
+      label: 'Food',
+      show: true,
+      text: 'How much do you spend on Food per week?',
+      info: 'Food',
+      type: 'range',
+      min: '65',
+      max: '200',
+      value: '133',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN,
+      label: 'Children',
+      show: true,
+      text: 'How many children do you have or plan to have?',
+      info: 'Children',
+      type: 'range',
+      min: '0',
+      max: '16',
+      value: '8',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
     }
   ]
 };
@@ -138,7 +183,8 @@ const pages = [
   initialInfoPage,
   careerPlansPage,
   lifestylePage,
-  retirementPlansPage
+  retirementPlansPage,
+  INITIAL_PAGE
 ];
 
 export { setInputEvents, selectInputClickEvent };

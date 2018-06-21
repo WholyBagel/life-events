@@ -22,10 +22,14 @@ export const QUESTION_IDS = {
   [CAREER_PLANS_PAGE]: {
     CAREER_DROPDOWN: 'careerInput',
     EDUCATION_PUBLIC_PRIVATE_RADIO: 'eduPublicPrivateInput',
-    HOURLY_OR_SALARY_RADIO: 'hourlyOrSalaryRadio'
+    HOURLY_OR_SALARY_RADIO: 'hourlyOrSalaryRadio',
+    HOUR_RATE_TEXT: 'hourlyRateInput',
+    HOURS_WEEKLY_TEXT: 'hoursWeeklyInput'
   },
   [LIFESTYLE_PLANS_PAGE]: {
-    MORTGAGE_RENT_RADIO: 'mortgageRentInput'
+    MORTGAGE_RENT_RADIO: 'mortgageRentInput',
+    FOOD: 'foodSliderInput',
+    CHILDREN: 'childrenSliderInput'
   },
   [RETIREMENT_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'

@@ -17,6 +17,7 @@ export default {
 
     const STARTING_SALARY_KEY = 'Starting Salary';
     const STARTING_SALARY_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].salary;
+    // const STARTING_FOOD_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].food;
 
     const infoItems = [
       {
@@ -27,6 +28,10 @@ export default {
         key: STARTING_SALARY_KEY,
         val: STARTING_SALARY_VAL
       }
+      // {
+      //   key: 'food',
+      //   val: STARTING_FOOD_VAL
+      // }
     ];
     addOrUpdateInfo(infoItems);
 
@@ -68,12 +73,28 @@ export default {
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO]: (e) => {
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] = e.target.id;
     if (state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] === 'Hourly') {
-      const corgi = $('#careerInput').parent().hide();
-      console.log(corgi);
+      $('#careerInput').parent().hide();
+      $('#edu_Private').parent().hide();
+      $('#hourlyRateInput').show();
+      $('#hoursWeeklyInput').show();
       // careerPlansPage[questions[id: ]].toggle();
     } else {
-      const corgi = $('#careerInput').parent().show();
-      console.log(corgi);
+      $('#careerInput').parent().show();
+      $('#edu_Private').parent().show();
+      $('#hourlyRateInput').hide();
+      $('#hoursWeeklyInput').hide();
     }
+  },
+  [QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]: (e) => {
+    const value = parseInt(e.target.value, 10);
+    state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT] = Number.isNaN(value) ? 0 : value;
+    const rate = state.calculateFunds();
+    state.data = { ...state.data, rate };
+  },
+  [QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]: (e) => {
+    const value = parseInt(e.target.value, 10);
+    state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT] = Number.isNaN(value) ? 0 : value;
+    const hours = state.calculateFunds();
+    state.data = { ...state.data, hours };
   }
 };

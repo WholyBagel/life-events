@@ -1,15 +1,38 @@
 import $ from 'jquery';
 import { navigateForward, navigateBackward, navigateToAPage } from '../../../navigation';
+import CONSTANTS from '../../constants';
+
+const { IDs } = CONSTANTS;
+const { QUESTION_IDS, PAGE_IDS } = IDs;
+const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
 
 export const updateHeroes = (financialData) => {
   const dataAt65 = financialData.find(item => item.age === 65);
   let netWorthAt65 = Math.round(dataAt65.totalNetworth);
-  netWorthAt65 = netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  $('#hero_3 h1').html(netWorthAt65);
   const dataAtCurrent = financialData[0];
+
   let salary = Math.round(dataAtCurrent.currentAnnualSalary);
+
+  // Setting numbers on heroes
+  netWorthAt65 = netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   salary = salary.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  $('#hero_3 h1').html(netWorthAt65);
   $('#hero_1 h1').html(salary);
+};
+export const downHeroes = (deduction) => {
+  state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = deduction;
+  state.calculateFunds();
+  const dataAtCurrent = state.data.financialData[0];
+  const salary = dataAtCurrent.currentAnnualSalary;
+
+  const finaldeduction = deduction * 52;
+  const moneySpending = salary - finaldeduction;
+
+  const dataAt65 = state.data.financialData.find(item => item.age === 65);
+  const netWorthAt65 = Math.round(dataAt65.totalNetworth);
+
+  $('#hero_1 h1').html(moneySpending.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+  $('#hero_3 h1').html(netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
 };
 
 export const showError = (id, msg) => {
@@ -47,6 +70,7 @@ export const removeError = (id) => {
 };
 
 export const addOrUpdateInfo = (i) => {
+  console.log('got here!', i);
   i.map((item) => {
     const idKey = item.key.replace(/\s/g, '');
     if ($(`#info-row-${idKey}`).length) {
