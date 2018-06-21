@@ -17,6 +17,7 @@ export default {
 
     const STARTING_SALARY_KEY = 'Starting Salary';
     const STARTING_SALARY_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].salary;
+    // const STARTING_FOOD_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].food;
 
     const infoItems = [
       {
@@ -27,6 +28,10 @@ export default {
         key: STARTING_SALARY_KEY,
         val: STARTING_SALARY_VAL
       }
+      // {
+      //   key: 'food',
+      //   val: STARTING_FOOD_VAL
+      // }
     ];
     addOrUpdateInfo(infoItems);
 
