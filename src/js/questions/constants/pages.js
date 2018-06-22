@@ -19,7 +19,6 @@ export const QUESTION_IDS = {
   [INITIAL_PAGE]: {
     AGE_TEXT: 'ageInput',
     NETWORTH_TEXT: 'networthInput',
-    CURRENT_ANNUAL_INCOME_TEXT: 'currentAnnualIncomeInput',
     STATES_DROPDOWN: 'statesInput'
   },
   [CAREER_PLANS_PAGE]: {
