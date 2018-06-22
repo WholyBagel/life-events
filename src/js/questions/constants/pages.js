@@ -17,7 +17,8 @@ export const QUESTION_IDS = {
   [INITIAL_PAGE]: {
     AGE_TEXT: 'ageInput',
     NETWORTH_TEXT: 'networthInput',
-    CURRENT_ANNUAL_INCOME_TEXT: 'currentAnnualIncomeInput'
+    CURRENT_ANNUAL_INCOME_TEXT: 'currentAnnualIncomeInput',
+    STATES_DROPDOWN: 'statesInput'
   },
   [CAREER_PLANS_PAGE]: {
     CAREER_DROPDOWN: 'careerInput',
@@ -29,7 +30,9 @@ export const QUESTION_IDS = {
   [LIFESTYLE_PLANS_PAGE]: {
     MORTGAGE_RENT_RADIO: 'mortgageRentInput',
     FOOD: 'foodSliderInput',
-    CHILDREN: 'childrenSliderInput'
+    CHILDREN: 'childrenSliderInput',
+    HOBBIES: 'hobbiesSliderInput',
+    TRANSPORTATION: 'transportationSliderInput'
   },
   [RETIREMENT_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'

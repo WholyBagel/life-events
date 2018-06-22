@@ -29,6 +29,8 @@ const createChart = () => {
 
 const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
+  // const hourlyOrSalary = state.ui.value.hourlyOrSalaryRadio
+  // if (hourlyOrSalary === 'Salary'){}
   // Trying to make the hours/rate changeable
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
@@ -42,10 +44,13 @@ const calculateFunds = () => {
 
   const annualSalary = Math.round(weeklySalary * 52);
 
-  const monthlySalary = annualSalary / 12;
-  console.log(monthlySalary);
+  console.log(`Annual ${annualSalary}`);
+  const monthlySalary = Math.round(annualSalary / 12);
+  console.log(`Monthly Salary  ${monthlySalary}`);
 
   const initialFunds = state.ui.values.networthInput || 0;
+  // If hourly checked, annual income is based on hours and rate and the career is a text input, else use salary stuffs
+
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
 
   const moneyLeftPerYear = state.ui.values.currentAnnualIncomeInput - deductions || 0;
@@ -56,7 +61,6 @@ const calculateFunds = () => {
   console.log(`In calc moneyleft ${deductions}`);
 
   const careerId = state.ui.values.careerInput || '';
-
   const careerData = createCareerData(careerId);
   const currentSalary = isInCareer(age, careerData.educationLevel) ? careerData.startingCareerSalary : currentAnnualIncome;
   // currentSalary -= state.ui.values.foodSpending;

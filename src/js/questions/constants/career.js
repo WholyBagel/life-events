@@ -5,6 +5,7 @@ export default [
   },
   {
     id: 'Salary',
-    text: 'Salary'
+    text: 'Salary',
+    default: true
   }
 ];

@@ -69,19 +69,20 @@ export default {
 
     addOrUpdateInfo(infoItems);
   },
+  // Checks the radio button to hide or show the content
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO]: (e) => {
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] = e.target.id;
     if (state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] === 'Hourly') {
       $('#careerInput').parent().hide();
       $('#edu_Private').parent().hide();
-      $('#hourlyRateInput').show();
-      $('#hoursWeeklyInput').show();
+      $('#hourlyRateInput').parent().show();
+      $('#hoursWeeklyInput').parent().show();
       // careerPlansPage[questions[id: ]].toggle();
     } else {
       $('#careerInput').parent().show();
       $('#edu_Private').parent().show();
-      $('#hourlyRateInput').hide();
-      $('#hoursWeeklyInput').hide();
+      $('#hourlyRateInput').parent().hide();
+      $('#hoursWeeklyInput').parent().hide();
     }
   },
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]: (e) => {

@@ -8,7 +8,7 @@ const {
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 const {
-  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA
+  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA, STATES_DATA
 } = CONSTANTS;
 
 const welcomePage = {
@@ -33,6 +33,7 @@ const initialInfoPage = {
       info: 'Starting age',
       type: 'text',
       required: true,
+      show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].AGE_TEXT]
 
     },
@@ -42,6 +43,7 @@ const initialInfoPage = {
       info: 'Initial Net Worth',
       type: 'text',
       required: true,
+      show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT]
     },
     {
@@ -49,7 +51,19 @@ const initialInfoPage = {
       placeholder: 'Annual Income',
       type: 'text',
       required: true,
+      show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].CURRENT_ANNUAL_INCOME_TEXT]
+    },
+    {
+      id: QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWN,
+      label: 'states',
+      show: true,
+      placeholder: 'Choose a your state...',
+      info: 'states',
+      type: 'select-dropdown',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWN],
+      values: STATES_DATA
     }
   ]
 };
@@ -82,6 +96,7 @@ const careerPlansPage = {
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN],
       values: OCCUPATIONAL_DATA
     },
+    // working on now
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO,
       label: 'Education',
@@ -107,7 +122,6 @@ const careerPlansPage = {
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
       placeholder: 'Hours per Week',
-      // Show isnt working right
       show: false,
       info: 'Hours',
       type: 'text',
@@ -141,9 +155,10 @@ const lifestylePage = {
       text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
+
       min: '0',
       max: '200',
-      value: '133',
+      value: '90',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     },
     {
@@ -157,6 +172,30 @@ const lifestylePage = {
       max: '16',
       value: '8',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES,
+      label: 'Hobbies',
+      show: true,
+      text: 'How much do you spend on your hobbies and entertainment per month?',
+      info: 'Children',
+      type: 'range',
+      min: '0',
+      max: '800',
+      value: '400',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION,
+      label: 'Transportation',
+      show: true,
+      text: 'How much do you spend on your transportation per month?',
+      info: 'Transportation',
+      type: 'range',
+      min: '10',
+      max: '1100',
+      value: '595',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }
   ]
 };
