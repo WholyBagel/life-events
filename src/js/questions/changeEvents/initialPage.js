@@ -44,7 +44,6 @@ export default {
       const financialData = state.calculateFunds();
 
       state.data = { ...state.data, financialData };
-      updateHeroes(financialData);
     } else {
       state.ui.values[QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT] = undefined;
     }
@@ -58,5 +57,9 @@ export default {
     state.data = { ...state.data, financialData };
 
     updateHeroes(financialData);
+  },
+  [QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWNN]: (e) => {
+    console.log('state: ', e.target.value);
   }
+
 };

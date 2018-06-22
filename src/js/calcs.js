@@ -29,20 +29,34 @@ const createChart = () => {
 
 const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
+  // const hourlyOrSalary = state.ui.value.hourlyOrSalaryRadio
+  // if (hourlyOrSalary === 'Salary'){}
   // Trying to make the hours/rate changeable
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
+
+  const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
+  const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
+  const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
+  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending)));
+
   // Creating their weekly salary
   const weeklySalary = Math.round(hours * rate);
-  console.log(`Weekly Salary ${weeklySalary}`);
-  const annualSalary = Math.round(weeklySalary * 52);
-  console.log(`Annual ${annualSalary}`);
-  const monthlySalary = annualSalary / 12;
-  console.log(`Monthly Salary ${monthlySalary}`);
-  const initialFunds = state.ui.values.networthInput || 0;
-  const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
-  const careerId = state.ui.values.careerInput || '';
 
+  const annualSalary = Math.round(weeklySalary * 52);
+
+  console.log(`Annual ${annualSalary}`);
+  const monthlySalary = Math.round(annualSalary / 12);
+  console.log(`Monthly Salary  ${monthlySalary}`);
+
+  const initialFunds = state.ui.values.networthInput || 0;
+  // If hourly checked, annual income is based on hours and rate and the career is a text input, else use salary stuffs
+
+  const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
+
+  const moneyLeftPerYear = state.ui.values.currentAnnualIncomeInput - deductions || 0;
+
+  const careerId = state.ui.values.careerInput || '';
   const careerData = createCareerData(careerId);
   const currentSalary = isInCareer(age, careerData.educationLevel) ? careerData.startingCareerSalary : currentAnnualIncome;
   // currentSalary -= state.ui.values.foodSpending;
@@ -56,9 +70,12 @@ const calculateFunds = () => {
       age,
       currentAnnualSalary: currentSalary,
       netAnnualIncome: netIncome,
+      moneyLeftPerYear,
       monthly,
       totalNetworth: initialFunds + netIncome,
-      foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
+      foodSpending,
+      hobbySpending,
+      transportationSpending
     }];
 
   const workingYears = R.takeLast(DEFAULT_RETIREMENT_AGE - age, R.times(R.identity, DEFAULT_RETIREMENT_AGE + 1));
@@ -79,7 +96,9 @@ const calculateFunds = () => {
       netAnnualIncome,
       monthly,
       totalNetworth: lastYear.totalNetworth + netAnnualIncome,
-      foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
+      foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD],
+      hobbySpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES],
+      transportationSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }];
   }, money)(workingYears);
 

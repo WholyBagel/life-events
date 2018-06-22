@@ -20,8 +20,9 @@
 						{{subtitle2}}
 					</p>
 					{{/if}} {{#each questions}} {{#compare type "===" "text"}}
-					<div class="md-text-field with-floating-label">
-						<input type="{{type}}" id="{{id}}" style="font-size: 3rem; height: 6rem; width: 24vw;" placeholder="{{placeholder}}"></input>
+					<div class="md-text-field with-floating-label" >
+						<input type="{{type}}" id="{{id}}" required style="font-size: 1.5rem; height: 3rem; width: 24vw;" placeholder=""></input>
+						<label for="{{id}}">{{placeholder}}</label>
 					</div>
 					{{/compare}} {{#compare type "===" "select-dropdown"}}
 					<div class="uitk-select md-text-field with-floating-label" style="margin-top: 4rem; width: 24vw">
@@ -37,7 +38,7 @@
 					{{/compare}}{{#compare type "===" "radio"}}
 					<div id="{{id}}" class="md-multi-ctrl-field " style="{{#unless show}}display: none;{{/unless}}">
 						{{#each values}}
-						<input id="{{id}}" name="{{../id}}" type="{{../type}}">
+						<input id="{{id}}" name="{{../id}}" type="{{../type}}" checked={{default}}>
 						<label for="{{id}}">{{text}}</label>
 						{{/each}}
 					</div>
