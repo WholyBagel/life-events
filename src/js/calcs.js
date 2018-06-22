@@ -40,7 +40,7 @@ const calculateFunds = () => {
   const annualSalary = Math.round(weeklySalary * 52);
   console.log(`Annual ${annualSalary}`);
   const monthlySalary = Math.round(annualSalary / 12);
-  console.log(`Monthly Salary ${monthlySalary}`);
+  console.log(`Monthly Salary  ${monthlySalary}`);
   const initialFunds = state.ui.values.networthInput || 0;
   // If hourly checked, annual income is based on hours and rate and the career is a text input, else use salary stuffs
 
