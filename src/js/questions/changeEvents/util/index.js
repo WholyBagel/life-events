@@ -9,10 +9,6 @@ import { navigateForward, navigateBackward, navigateToAPage } from '../../../nav
 export const updateHeroes = () => {
   const hero1Value = state.data.financialData[0].moneyLeftPerYear;
 
-  // const dataAt65 = state.data.financialData.find(item => item.age === 65);
-  // console.log(dataAt65);
-  // let netWorthAt65 = Math.round(dataAt65.totalNetworth);
-
   let moneyLeft = Math.round(hero1Value);
   let monthlyMoney = moneyLeft / 12;
   let weeklyMoney = moneyLeft / 52;

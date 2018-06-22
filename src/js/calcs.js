@@ -36,8 +36,9 @@ const calculateFunds = () => {
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
 
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
-  const kidSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN] * 250 || 0;
-  const deductions = (52 * (Number(foodSpending) + Number(kidSpending)));
+  const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
+  const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
+  const deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
 
   // Creating their weekly salary
   const weeklySalary = Math.round(hours * rate);
@@ -54,11 +55,6 @@ const calculateFunds = () => {
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
 
   const moneyLeftPerYear = state.ui.values.currentAnnualIncomeInput - deductions || 0;
-  console.log(`In calc  food ${foodSpending}`);
-  console.log(`In calc  kid${kidSpending}`);
-  console.log(`In calc income ${state.ui.values.currentAnnualIncomeInput}`);
-  console.log(`In calc moneyleft ${moneyLeftPerYear}`);
-  console.log(`In calc moneyleft ${deductions}`);
 
   const careerId = state.ui.values.careerInput || '';
   const careerData = createCareerData(careerId);
@@ -78,7 +74,8 @@ const calculateFunds = () => {
       monthly,
       totalNetworth: initialFunds + netIncome,
       foodSpending,
-      kidSpending
+      hobbySpending,
+      transportationSpending
     }];
 
   const workingYears = R.takeLast(DEFAULT_RETIREMENT_AGE - age, R.times(R.identity, DEFAULT_RETIREMENT_AGE + 1));
@@ -100,7 +97,8 @@ const calculateFunds = () => {
       monthly,
       totalNetworth: lastYear.totalNetworth + netAnnualIncome,
       foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD],
-      kidSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
+      hobbySpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES],
+      transportationSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }];
   }, money)(workingYears);
 
