@@ -155,7 +155,8 @@ const lifestylePage = {
       text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-      min: '20',
+
+      min: '0',
       max: '200',
       value: '90',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]

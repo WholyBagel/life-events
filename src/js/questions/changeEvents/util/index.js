@@ -1,38 +1,29 @@
 import $ from 'jquery';
 import { navigateForward, navigateBackward, navigateToAPage } from '../../../navigation';
-import CONSTANTS from '../../constants';
+// import CONSTANTS from '../../constants';
 
-const { IDs } = CONSTANTS;
-const { QUESTION_IDS, PAGE_IDS } = IDs;
-const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
+// const { IDs } = CONSTANTS;
+// const { QUESTION_IDS, PAGE_IDS } = IDs;
+// const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
 
-export const updateHeroes = (financialData) => {
-  const dataAt65 = financialData.find(item => item.age === 65);
-  let netWorthAt65 = Math.round(dataAt65.totalNetworth);
-  const dataAtCurrent = financialData[0];
+export const updateHeroes = () => {
+  const hero1Value = state.data.financialData[0].moneyLeftPerYear;
 
-  let salary = Math.round(dataAtCurrent.currentAnnualSalary);
+  // const dataAt65 = state.data.financialData.find(item => item.age === 65);
+  // console.log(dataAt65);
+  // let netWorthAt65 = Math.round(dataAt65.totalNetworth);
+
+  let moneyLeft = Math.round(hero1Value);
+  let monthlyMoney = moneyLeft / 12;
+  let weeklyMoney = moneyLeft / 52;
 
   // Setting numbers on heroes
-  netWorthAt65 = netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  salary = salary.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  $('#hero_3 h1').html(netWorthAt65);
-  $('#hero_1 h1').html(salary);
-};
-export const downHeroes = (deduction) => {
-  state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = deduction;
-  state.calculateFunds();
-  const dataAtCurrent = state.data.financialData[0];
-  const salary = dataAtCurrent.currentAnnualSalary;
-
-  const finaldeduction = deduction * 52;
-  const moneySpending = salary - finaldeduction;
-
-  const dataAt65 = state.data.financialData.find(item => item.age === 65);
-  const netWorthAt65 = Math.round(dataAt65.totalNetworth);
-
-  $('#hero_1 h1').html(moneySpending.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
-  $('#hero_3 h1').html(netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+  monthlyMoney = monthlyMoney.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  weeklyMoney = weeklyMoney.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  moneyLeft = moneyLeft.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  $('#hero_3 h1').html(weeklyMoney);
+  $('#hero_2 h1').html(monthlyMoney);
+  $('#hero_1 h1').html(moneyLeft);
 };
 
 export const showError = (id, msg) => {
@@ -70,7 +61,6 @@ export const removeError = (id) => {
 };
 
 export const addOrUpdateInfo = (i) => {
-  console.log('got here!', i);
   i.map((item) => {
     const idKey = item.key.replace(/\s/g, '');
     if ($(`#info-row-${idKey}`).length) {
