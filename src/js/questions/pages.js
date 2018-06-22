@@ -111,7 +111,6 @@ const careerPlansPage = {
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
       placeholder: 'Hours per Week',
-      // Show isnt working right
       show: false,
       info: 'Hours',
       type: 'text',
