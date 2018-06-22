@@ -29,7 +29,9 @@ export const QUESTION_IDS = {
   [LIFESTYLE_PLANS_PAGE]: {
     MORTGAGE_RENT_RADIO: 'mortgageRentInput',
     FOOD: 'foodSliderInput',
-    CHILDREN: 'childrenSliderInput'
+    CHILDREN: 'childrenSliderInput',
+    HOBBIES: 'hobbiesSliderInput',
+    TRANSPORTATION: 'transportationSliderInput'
   },
   [RETIREMENT_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'

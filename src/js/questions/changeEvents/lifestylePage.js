@@ -36,5 +36,31 @@ export default {
     addOrUpdateInfo(infoItems);
 
     downHeroes(e.target.value * 270);
+  },
+  [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]: (e) => {
+    state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] = e.target.value;
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES}-value`).html(e.target.value);
+    const infoItems = [
+      {
+        key: 'hobbies',
+        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
+      }
+    ];
+    addOrUpdateInfo(infoItems);
+
+    // downHeroes(e.target.value * 270);
+  },
+  [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]: (e) => {
+    state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] = e.target.value;
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION}-value`).html(e.target.value);
+    const infoItems = [
+      {
+        key: 'transportation',
+        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
+      }
+    ];
+    addOrUpdateInfo(infoItems);
+
+    // downHeroes(e.target.value * 270);
   }
 };
