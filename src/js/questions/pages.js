@@ -170,7 +170,7 @@ const lifestylePage = {
       text: 'How much do you spend on your transportation per month?',
       info: 'Transportation',
       type: 'range',
-      min: '10',
+      min: '0',
       max: '1100',
       value: '595',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
