@@ -8,7 +8,7 @@ const {
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 const {
-  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA, STATES_DATA
+  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOURLY_OR_SALARY_DATA, STATES_DATA
 } = CONSTANTS;
 
 const welcomePage = {
@@ -139,38 +139,17 @@ const lifestylePage = {
   required: true,
   questions: [
     {
-      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].MORTGAGE_RENT_RADIO,
-      label: 'Mortgage / Rent',
-      show: true,
-      placeholder: 'Choose a type housing...',
-      info: 'Housing',
-      type: 'radio',
-      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].MORTGAGE_RENT_RADIO],
-      values: HOUSING_OPTIONS_DATA
-    },
-    {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD,
       label: 'Food',
       show: true,
       text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-      min: '20',
+
+      min: '0',
       max: '200',
       value: '90',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
-    },
-    {
-      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN,
-      label: 'Children',
-      show: true,
-      text: 'How many children do you have or plan to have?',
-      info: 'Children',
-      type: 'range',
-      min: '0',
-      max: '16',
-      value: '8',
-      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
     },
     {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES,
