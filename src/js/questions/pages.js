@@ -33,6 +33,7 @@ const initialInfoPage = {
       info: 'Starting age',
       type: 'text',
       required: true,
+      show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].AGE_TEXT]
 
     },
@@ -42,6 +43,7 @@ const initialInfoPage = {
       info: 'Initial Net Worth',
       type: 'text',
       required: true,
+      show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT]
     },
     {
@@ -49,6 +51,7 @@ const initialInfoPage = {
       placeholder: 'Annual Income',
       type: 'text',
       required: true,
+      show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].CURRENT_ANNUAL_INCOME_TEXT]
     }
   ]

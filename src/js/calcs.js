@@ -37,7 +37,7 @@ const calculateFunds = () => {
   console.log(`Weekly Salary ${weeklySalary}`);
   const annualSalary = Math.round(weeklySalary * 52);
   console.log(`Annual ${annualSalary}`);
-  const monthlySalary = annualSalary / 12;
+  const monthlySalary = Math.round(annualSalary / 12);
   console.log(`Monthly Salary ${monthlySalary}`);
   const initialFunds = state.ui.values.networthInput || 0;
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
