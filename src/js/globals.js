@@ -8,7 +8,7 @@ const state = {
     },
     pages,
     values: {
-      // foodSliderInput: 133,
+
       info: {
 
       }

@@ -142,9 +142,9 @@ const lifestylePage = {
       text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-      min: '65',
+      min: '20',
       max: '200',
-      value: '133',
+      value: '90',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     },
     {
@@ -158,6 +158,30 @@ const lifestylePage = {
       max: '16',
       value: '8',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES,
+      label: 'Hobbies',
+      show: true,
+      text: 'How much do you spend on your hobbies and entertainment per month?',
+      info: 'Children',
+      type: 'range',
+      min: '0',
+      max: '800',
+      value: '400',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
+    },
+    {
+      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION,
+      label: 'Transportation',
+      show: true,
+      text: 'How much do you spend on your transportation per month?',
+      info: 'Transportation',
+      type: 'range',
+      min: '10',
+      max: '1100',
+      value: '595',
+      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }
   ]
 };
