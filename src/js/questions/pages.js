@@ -46,14 +46,7 @@ const initialInfoPage = {
       show: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT]
     },
-    {
-      id: QUESTION_IDS[INITIAL_PAGE].CURRENT_ANNUAL_INCOME_TEXT,
-      placeholder: 'Annual Income',
-      type: 'text',
-      required: true,
-      show: true,
-      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].CURRENT_ANNUAL_INCOME_TEXT]
-    },
+
     {
       id: QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWN,
       label: 'states',
