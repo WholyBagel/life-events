@@ -9,14 +9,20 @@ import { navigateForward, navigateBackward, navigateToAPage } from '../../../nav
 export const updateHeroes = () => {
   const hero1Value = state.data.financialData[0].moneyLeftPerYear;
 
+  // const dataAt65 = state.data.financialData.find(item => item.age === 65);
+  // console.log(dataAt65);
   // let netWorthAt65 = Math.round(dataAt65.totalNetworth);
 
   let moneyLeft = Math.round(hero1Value);
+  let monthlyMoney = moneyLeft / 12;
+  let weeklyMoney = moneyLeft / 52;
 
   // Setting numbers on heroes
-  // netWorthAt65 = netWorthAt65.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  monthlyMoney = monthlyMoney.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  weeklyMoney = weeklyMoney.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   moneyLeft = moneyLeft.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  // $('#hero_3 h1').html(netWorthAt65);
+  $('#hero_3 h1').html(weeklyMoney);
+  $('#hero_2 h1').html(monthlyMoney);
   $('#hero_1 h1').html(moneyLeft);
 };
 

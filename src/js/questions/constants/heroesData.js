@@ -1,17 +1,17 @@
 export const HEROES_DATA = [
   {
     id: 'hero_1',
-    title: 'Money Left Per Year',
+    title: 'Yearly Allowance Left',
     defaultValue: '0'
   },
   {
     id: 'hero_2',
-    title: 'Not Yet Decided',
+    title: 'Monthly Allowance Left',
     defaultValue: '0'
   },
   {
     id: 'hero_3',
-    title: 'Money at 65',
+    title: 'Weekly Allowance Left',
     defaultValue: '0'
   }
 ];
