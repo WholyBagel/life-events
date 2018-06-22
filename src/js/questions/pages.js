@@ -8,7 +8,7 @@ const {
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 const {
-  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA
+  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA, STATES_DATA
 } = CONSTANTS;
 
 const welcomePage = {
@@ -50,6 +50,17 @@ const initialInfoPage = {
       type: 'text',
       required: true,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].CURRENT_ANNUAL_INCOME_TEXT]
+    },
+    {
+      id: QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWN,
+      label: 'states',
+      show: true,
+      placeholder: 'Choose a your state...',
+      info: 'states',
+      type: 'select-dropdown',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWN],
+      values: STATES_DATA
     }
   ]
 };
