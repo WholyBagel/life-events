@@ -38,7 +38,7 @@ const calculateFunds = () => {
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
   const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
-  const deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
+  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending)));
 
   // Creating their weekly salary
   const weeklySalary = Math.round(hours * rate);
