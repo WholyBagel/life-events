@@ -1,15 +1,17 @@
 export const INITIAL_PAGE = 'initialPage';
 export const CAREER_PLANS_PAGE = 'careerPlansPage';
 export const LIFESTYLE_PLANS_PAGE = 'lifestylePlansPage';
-export const RETIREMENT_PLANS_PAGE = 'retirementPlansPage';
+export const SUMMARY_PLANS_PAGE = 'summaryPlansPage';
 export const WELCOME_PAGE = 'welcomePage';
+export const OTHER_PLANS_PAGE = 'otherPage';
 
 export const PAGE_IDS = {
   WELCOME_PAGE,
   INITIAL_PAGE,
   CAREER_PLANS_PAGE,
   LIFESTYLE_PLANS_PAGE,
-  RETIREMENT_PLANS_PAGE
+  OTHER_PLANS_PAGE,
+  SUMMARY_PLANS_PAGE
 };
 
 export const QUESTION_IDS = {
@@ -33,7 +35,10 @@ export const QUESTION_IDS = {
     HOBBIES: 'hobbiesSliderInput',
     TRANSPORTATION: 'transportationSliderInput'
   },
-  [RETIREMENT_PLANS_PAGE]: {
+  [OTHER_PLANS_PAGE]: {
+    FOUR01K_TEXT: '401KInput'
+  },
+  [SUMMARY_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'
   }
 };
