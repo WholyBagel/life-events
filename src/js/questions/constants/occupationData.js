@@ -3,8 +3,7 @@ export default [
     id: 'chief_executives',
     text: 'Chief executives',
     education: 'bach_deg',
-    salary: 183270,
-    food: 22
+    salary: 183270
   },
   {
     id: 'general_and_operations_managers',
