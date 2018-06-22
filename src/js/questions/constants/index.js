@@ -5,6 +5,7 @@ import { HOUSING_OPTIONS_DATA } from './lifestyleData';
 import TAX_INFO from './taxInfo';
 import { HEROES_DATA } from './heroesData';
 import HOURLY_OR_SALARY_DATA from './career';
+import STATES_DATA from './statesData';
 
 const DEFAULT_AGE = 18;
 const DEFAULT_COLLEGE_START_AGE = 18;
@@ -30,5 +31,7 @@ export default {
   TAX_INFO,
   HOURLY_OR_SALARY_DATA,
   DEFAULT_HOURS,
-  DEFAULT_RATE
+  DEFAULT_RATE,
+  STATES_DATA
+
 };

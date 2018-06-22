@@ -58,5 +58,9 @@ export default {
     state.data = { ...state.data, financialData };
 
     updateHeroes(financialData);
+  },
+  [QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWNN]: (e) => {
+    console.log('state: ',e.target.value);
   }
+
 };
