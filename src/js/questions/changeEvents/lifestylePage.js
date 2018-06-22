@@ -44,7 +44,6 @@ export default {
     ];
     addOrUpdateInfo(infoItems);
 
-
     state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN] = (e.target.value);
 
     const financialData = state.calculateFunds();
@@ -53,7 +52,7 @@ export default {
 
     updateHeroes();
   },
-  //new work
+  // new work
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] = e.target.value;
     $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES}-value`).html(e.target.value);
@@ -65,7 +64,13 @@ export default {
     ];
     addOrUpdateInfo(infoItems);
 
-    
+    state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] = (e.target.value);
+
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+
+    updateHeroes();
   },
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] = e.target.value;
@@ -78,8 +83,13 @@ export default {
     ];
     addOrUpdateInfo(infoItems);
 
-    
+    state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] = (e.target.value);
 
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+
+    updateHeroes();
   }
 
 };
