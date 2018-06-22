@@ -1,3 +1,4 @@
+export default []
 // export default [
 //   {
 //     id: 'wisconsin', text: 'wisconsin'
@@ -152,5 +153,6 @@
 //   {
 //     id: 'Wyoming', text: 'Wyoming'
 //   }
+
 
 // ];

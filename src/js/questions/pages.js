@@ -4,19 +4,19 @@ import { setInputEvents, selectInputClickEvent } from './helpers';
 import changeEvents from './changeEvents';
 
 const {
-  WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, RETIREMENT_PLANS_PAGE
+  WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, OTHER_PLANS_PAGE, SUMMARY_PLANS_PAGE
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 const {
-  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOUSING_OPTIONS_DATA, HOURLY_OR_SALARY_DATA, STATES_DATA
+  OCCUPATIONAL_DATA, EDU_PUBLIC_PRIVATE_DATA, HOURLY_OR_SALARY_DATA, STATES_DATA
 } = CONSTANTS;
 
 const welcomePage = {
   id: WELCOME_PAGE,
   nav: 'Welcome',
   title: 'Welcome',
-  subtitle: 'The Life Events Financial Calculator will help you see how the big decisions that you make throughout your life will effect your financial well-being.',
-  subtitle2: 'Lets get started!',
+  subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-beingx.',
+  subtitle2: 'Click on the Green Arrow to Begin',
   show: true
 };
 
@@ -139,38 +139,17 @@ const lifestylePage = {
   required: true,
   questions: [
     {
-      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].MORTGAGE_RENT_RADIO,
-      label: 'Mortgage / Rent',
-      show: true,
-      placeholder: 'Choose a type housing...',
-      info: 'Housing',
-      type: 'radio',
-      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].MORTGAGE_RENT_RADIO],
-      values: HOUSING_OPTIONS_DATA
-    },
-    {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD,
       label: 'Food',
       show: true,
       text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-      min: '20',
+
+      min: '0',
       max: '200',
       value: '90',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
-    },
-    {
-      id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN,
-      label: 'Children',
-      show: true,
-      text: 'How many children do you have or plan to have?',
-      info: 'Children',
-      type: 'range',
-      min: '0',
-      max: '16',
-      value: '8',
-      changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]
     },
     {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES,
@@ -191,18 +170,36 @@ const lifestylePage = {
       text: 'How much do you spend on your transportation per month?',
       info: 'Transportation',
       type: 'range',
-      min: '10',
+      min: '0',
       max: '1100',
       value: '595',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }
   ]
 };
+const otherPlansPage = {
+  id: OTHER_PLANS_PAGE,
+  nav: 'Additional Info',
+  title: 'Here are some other important factors',
+  show: false,
+  required: true,
+  questions: [
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS,
+      placeholder: 'How much will you or do you have in student loans?',
+      show: false,
+      info: 'StudentLoans',
+      type: 'text',
+      required: true
+      // changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].HOUR_RATE_TEXT]
+    }
+  ]
+};
 
-const retirementPlansPage = {
-  id: RETIREMENT_PLANS_PAGE,
-  nav: 'Retirement',
-  title: 'What are your retirement plans...',
+const summaryPlansPage = {
+  id: SUMMARY_PLANS_PAGE,
+  nav: 'Summary',
+  title: 'Current finanical situation',
   show: false,
   required: true,
   questions: [
@@ -220,7 +217,8 @@ const pages = [
   initialInfoPage,
   careerPlansPage,
   lifestylePage,
-  retirementPlansPage,
+  otherPlansPage,
+  summaryPlansPage,
   INITIAL_PAGE
 ];
 
