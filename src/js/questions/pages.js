@@ -82,6 +82,7 @@ const careerPlansPage = {
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN],
       values: OCCUPATIONAL_DATA
     },
+    // working on now
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO,
       label: 'Education',
