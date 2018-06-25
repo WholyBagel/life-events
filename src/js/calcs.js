@@ -9,7 +9,7 @@ const {
   OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO, DEFAULT_RATE, DEFAULT_HOURS, IDs
 } = CONSTANTS;
 const { QUESTION_IDS, PAGE_IDS } = IDs;
-const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
+const { LIFESTYLE_PLANS_PAGE, OTHER_PLANS_PAGE } = PAGE_IDS;
 const { TAX_BRACKETS } = TAX_INFO;
 const MONTHS = 12;
 
@@ -36,7 +36,11 @@ const calculateFunds = () => {
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
   const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
-  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending)));
+  const studentLoansSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS] || 0;
+  const housingSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING] || 0;
+  const utilitiesSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES] || 0;
+  console.log(studentLoansSpending, 'studentLoansSpending');
+  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending) + Number(studentLoansSpending) + Number(housingSpending) + Number(utilitiesSpending)));
   let annualSalary = 0;
   if (state.ui.values.hourlyOrSalaryRadio === 'Hourly') {
     // Trying to make the hours/rate changeable
@@ -83,7 +87,10 @@ const calculateFunds = () => {
       totalNetworth: initialFunds + netIncome,
       foodSpending,
       hobbySpending,
-      transportationSpending
+      transportationSpending,
+      studentLoansSpending,
+      housingSpending,
+      utilitiesSpending
     }];
 
   const workingYears = R.takeLast(DEFAULT_RETIREMENT_AGE - age, R.times(R.identity, DEFAULT_RETIREMENT_AGE + 1));
@@ -106,7 +113,10 @@ const calculateFunds = () => {
       totalNetworth: lastYear.totalNetworth + netAnnualIncome,
       foodSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD],
       hobbySpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES],
-      transportationSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
+      transportationSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION],
+      studentLoansSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS],
+      housingSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING],
+      utilitiesSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES]
     }];
   }, money)(workingYears);
 

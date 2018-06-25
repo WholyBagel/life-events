@@ -36,7 +36,9 @@ export const QUESTION_IDS = {
     TRANSPORTATION: 'transportationSliderInput'
   },
   [OTHER_PLANS_PAGE]: {
-    FOUR01K_TEXT: '401KInput'
+    STUDENTLOANS: 'studentLoansInput',
+    HOUSING: 'housingInput',
+    UTILITIES: 'utilitiesInput'
   },
   [SUMMARY_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'
