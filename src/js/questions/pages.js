@@ -89,7 +89,7 @@ const careerPlansPage = {
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN],
       values: OCCUPATIONAL_DATA
     },
-    // working on now
+
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO,
       label: 'Education',
@@ -138,7 +138,6 @@ const lifestylePage = {
       text: 'How much do you spend on Food per week?',
       info: 'Food',
       type: 'range',
-
       min: '0',
       max: '200',
       value: '90',
@@ -210,17 +209,10 @@ const otherPlansPage = {
 const summaryPlansPage = {
   id: SUMMARY_PLANS_PAGE,
   nav: 'Summary',
-  title: 'Current finanical situation',
+  title: 'Here is your financial spending',
   show: false,
-  required: true,
-  questions: [
-    {
-      id: '401KInput',
-      placeholder: '401K / Month',
-      info: '401K',
-      type: 'text'
-    }
-  ]
+  required: true
+
 };
 
 const pages = [
@@ -229,8 +221,7 @@ const pages = [
   careerPlansPage,
   lifestylePage,
   otherPlansPage,
-  summaryPlansPage,
-  INITIAL_PAGE
+  summaryPlansPage
 ];
 
 export { setInputEvents, selectInputClickEvent };

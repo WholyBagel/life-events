@@ -16,8 +16,6 @@
   "dependencies": {
     "autoprefixer": "8.5.1",
     "chart.js": "2.7.2",
-    "d3": "5.4.0",
-    "d3-axis": "1.0.8",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "financejs": "4.1.0",

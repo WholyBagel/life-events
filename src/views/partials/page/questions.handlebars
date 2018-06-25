@@ -20,12 +20,12 @@
 						{{subtitle2}}
 					</p>
 					{{/if}} {{#each questions}} {{#compare type "===" "text"}}
-					<div class="md-text-field with-floating-label" >
+					<div class="md-text-field with-floating-label" style="{{#unless show}}display: none;{{/unless}}">
 						<input type="{{type}}" id="{{id}}" required style="font-size: 1.5rem; height: 3rem; width: 24vw;" placeholder=""></input>
 						<label for="{{id}}">{{placeholder}}</label>
 					</div>
 					{{/compare}} {{#compare type "===" "select-dropdown"}}
-					<div class="uitk-select md-text-field with-floating-label" style="margin-top: 4rem; width: 24vw">
+					<div class="uitk-select md-text-field with-floating-label" style="{{#unless show}}display: none;{{/unless}}margin-top: 4rem; width: 24vw">
 						<input id="{{id}}" type="text" class="select-input" readonly="true" placeholder="{{placeholder}}" required>
 						<span class="select-arrow"></span>
 						<ul class="select-dropdown">
@@ -46,10 +46,15 @@
 					<div id="{{id}}-slider" class="" style="{{#unless show}}display: none;{{/unless}}">
 						<p>{{text}}</p>
 						<input id="{{id}}" name="{{../id}}" type="{{type}}" min="{{min}}" max="{{max}}" style="display: block; margin: auto; text-align:center;">
-						<span id="{{id}}-value" style="display: block; margin: auto; text-align:center;">{{value}}</span>
+						<span id="{{id}}-value" style="display: block; margin: auto; text-align:center; margin-top:5%;">{{value}}</span>
 						
 					</div>
 					{{/compare}} {{/each}}
+					 {{#compare type "===" "end"}}
+					<div id="{{id}}-attempt" type="{{type}}" class="" style="{{#unless show}}display: none;{{/unless}}">
+						<p>Try this here</p>	
+					</div>
+					{{/compare}}
 					
 				</div>
 				{{/each }}

@@ -7,7 +7,7 @@ import { navigateForward, navigateBackward, navigateToAPage } from '../../../nav
 // const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
 
 export const updateHeroes = () => {
-  const hero1Value = state.data.financialData[0].moneyLeftPerYear;
+  const hero1Value = state.data.moneyLeftCurrentYear;
 
   let moneyLeft = Math.round(hero1Value);
   let monthlyMoney = moneyLeft / 12;
@@ -59,6 +59,8 @@ export const removeError = (id) => {
 export const addOrUpdateInfo = (i) => {
   i.map((item) => {
     const idKey = item.key.replace(/\s/g, '');
+    // const careerSalary = (item.val);
+
     if ($(`#info-row-${idKey}`).length) {
       $(`#info-row-${idKey} .val`).html(item.val);
     } else {

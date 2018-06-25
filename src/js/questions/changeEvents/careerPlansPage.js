@@ -17,7 +17,8 @@ export default {
 
     const STARTING_SALARY_KEY = 'Starting Salary';
     const STARTING_SALARY_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].salary;
-
+    state.data[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN] = STARTING_SALARY_VAL;
+    console.log('SCOTT SAID TO CONSOLE OUT THE VALUE: ', STARTING_SALARY_VAL);
     const infoItems = [
       {
         key: pages[2].questions[0].info,
@@ -50,6 +51,7 @@ export default {
     }
 
     state.data = { ...state.data, financialData };
+    updateHeroes();
   },
 
   [QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO]: (e) => {
@@ -108,4 +110,25 @@ export default {
 
     updateHeroes();
   }
+  /* [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]: (e) => {
+    state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = e.target.value;
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD}-value`).html(e.target.value);
+
+    const infoItems = [
+      {
+        key: 'food',
+        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
+      }
+    ];
+    addOrUpdateInfo(infoItems);
+
+    state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = (e.target.value);
+
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+
+    updateHeroes();
+  }
+*/
 };
