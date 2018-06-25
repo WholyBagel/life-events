@@ -3,7 +3,7 @@
 		<div class="row" style="height: 11vh;">
 			{{#each (getPages)}}
 			<div id="title-{{id}}" class="small-12 columns" style="text-align: center; border-bottom: 3px solid #eeeeee; {{#unless show}}display: none;{{/unless}}">
-				<h3 style="line-height: 6rem; font-size: 2rem; color: #16b161; font-weight: 500"> {{title}}</h3>
+				<h3 style="line-height: 6rem; font-size: 2rem; color: #00a9df; font-weight: 500"> {{title}}</h3>
 			</div>
 			{{/each}}
 		</div>
@@ -16,7 +16,7 @@
 						{{subtitle}}
 					</p>
 					{{/if}}{{#if subtitle2}}
-					<p style="text-align: center; font-size: 2rem; line-height: 2.5rem; color:#16b161; ">
+					<p style="text-align: center; font-size: 2rem; line-height: 2.5rem; color: #; ">
 						{{subtitle2}}
 					</p>
 					{{/if}} {{#each questions}} {{#compare type "===" "text"}}

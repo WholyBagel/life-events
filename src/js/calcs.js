@@ -29,22 +29,32 @@ const createChart = () => {
 
 const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
-
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
 
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
   const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
-  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending)));
-  let annualSalary = 0;
+
+  let deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
+
+  // Creating their weekly salary
+  let weeklySalary = Math.round(hours * rate);
+
+  let annualSalary = Math.round(weeklySalary * 52);
+
+  console.log(`Annual ${annualSalary}`);
+  let monthlySalary = annualSalary / 12;
+  console.log(`Monthly Salary ${monthlySalary}`);
+  deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending)));
+  annualSalary = 0;
   if (state.ui.values.hourlyOrSalaryRadio === 'Hourly') {
     // Trying to make the hours/rate changeable
     // Creating their weekly salary using hourly wage
-    const weeklySalary = Math.round(hours * rate);
+    weeklySalary = Math.round(hours * rate);
     annualSalary = Math.round(weeklySalary * 52);
     console.log(`Annual ${annualSalary}`);
-    const monthlySalary = Math.round(annualSalary / 12);
+    monthlySalary = Math.round(annualSalary / 12);
     console.log(`Monthly Salary  ${monthlySalary}`);
     state.ui.values.currentAnnualIncomeInput = annualSalary;
   } else {
@@ -54,9 +64,8 @@ const calculateFunds = () => {
   console.log(federalTaxBracket);
   let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', annualSalary);
   console.log(stateTaxBracket);
-  const initialFunds = state.ui.values.networthInput || 0;
-  // If hourly checked, annual income is based on hours and rate and the career is a text input, else use salary stuffs
 
+  const initialFunds = state.ui.values.networthInput || 0;
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
 
   const moneyLeftPerYear = currentAnnualIncome - deductions || 0;
