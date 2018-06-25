@@ -95,13 +95,10 @@ const calculateFunds = () => {
 
   const currentAnnualIncome = annualSalary || 0;
   const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
-  
+
   let monthly = Math.round(netIncome / 12);
-  const moneyLeftCurrentYear = netIncome - deductions || 0;
 
-  const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
-
-  state.data.moneyLeftCurrentYear = currentAnnualIncome - deductions || 0;
+  state.data.moneyLeftCurrentYear = netIncome - deductions || 0;
 
   const careerId = state.ui.values.careerInput || '';
   const careerData = createCareerData(careerId);
