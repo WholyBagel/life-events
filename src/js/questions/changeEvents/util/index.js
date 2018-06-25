@@ -59,6 +59,8 @@ export const removeError = (id) => {
 export const addOrUpdateInfo = (i) => {
   i.map((item) => {
     const idKey = item.key.replace(/\s/g, '');
+    // const careerSalary = (item.val);
+
     if ($(`#info-row-${idKey}`).length) {
       $(`#info-row-${idKey} .val`).html(item.val);
     } else {

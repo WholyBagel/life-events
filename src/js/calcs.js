@@ -4,12 +4,14 @@ import $ from 'jquery';
 import Chart from 'chart.js';
 // import d3Axis from 'd3-axis'
 import CONSTANTS from './questions/constants';
+import { STARTING_SALARY_VAL } from './questions/changeEvents/careerPlansPage';
 
 const {
   OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO, DEFAULT_RATE, DEFAULT_HOURS, IDs
 } = CONSTANTS;
 const { QUESTION_IDS, PAGE_IDS } = IDs;
-const { LIFESTYLE_PLANS_PAGE, SUMMARY_PLANS_PAGE } = PAGE_IDS;
+const { LIFESTYLE_PLANS_PAGE, CAREER_PLANS_PAGE, SUMMARY_PLANS_PAGE } = PAGE_IDS;
+
 const { TAX_BRACKETS } = TAX_INFO;
 const MONTHS = 12;
 
@@ -61,10 +63,10 @@ const calculateFunds = () => {
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
 
   let deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
-
+  const hi = STARTING_SALARY_VAL;
+  console.log(hi);
   // Creating their weekly salary
   let weeklySalary = Math.round(hours * rate);
-
   let annualSalary = Math.round(weeklySalary * 52);
 
   console.log(`Annual ${annualSalary}`);
@@ -77,19 +79,26 @@ const calculateFunds = () => {
     // Creating their weekly salary using hourly wage
     weeklySalary = Math.round(hours * rate);
     annualSalary = Math.round(weeklySalary * 52);
-    console.log(`Annual ${annualSalary}`);
     monthlySalary = Math.round(annualSalary / 12);
-    console.log(`Monthly Salary  ${monthlySalary}`);
-    state.ui.values.currentAnnualIncomeInput = annualSalary;
+    console.log('first message', annualSalary);
+    // state.ui.values.currentAnnualIncomeInput = annualSalary;
   } else {
-    console.log('Bleh');
+    // annualSalary = career salary;
+    annualSalary = state.data[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN];
   }
+  // Does the tax calculations
   let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, annualSalary);
-  console.log(federalTaxBracket);
   let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', annualSalary);
-  console.log(stateTaxBracket);
 
+  // state.ui.values.currentAnnualIncomeInput = annualSalary;
   const initialFunds = state.ui.values.networthInput || 0;
+
+  const currentAnnualIncome = annualSalary || 0;
+  const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
+  
+  let monthly = Math.round(netIncome / 12);
+  const moneyLeftCurrentYear = netIncome - deductions || 0;
+
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
 
   state.data.moneyLeftCurrentYear = currentAnnualIncome - deductions || 0;
@@ -101,9 +110,6 @@ const calculateFunds = () => {
   // let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, careerData.startingCareerSalary);
   // let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', careerData.startingCareerSalary);
 
-  const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
-  console.log(netIncome);
-  let monthly = Math.round(netIncome / 12);
   // let monthly = R.times(calcMonthlyData(initialFunds, annualSalary, federalTaxBracket, stateTaxBracket), MONTHS);
   // console.log('This is monthly ', monthly);
   let money = [
@@ -187,7 +193,6 @@ const calcNetIncome = ({ federalTaxBracket, stateTaxBracket }, taxibleIncome) =>
   taxibleIncome - (taxibleIncome * (federalTaxBracket.percent)) - (taxibleIncome * (stateTaxBracket.percent));
 
 const calcSalaryWithCOLA = (startingSalary, currentYear) => startingSalary * (1 + (DEFAULT_COLA_ADJ / 1)) ** currentYear;
-
 const calcMonthlyData = R.curry((lastYearNW, currentSalary, federalTaxBracket, stateTaxBracket, month) => {
   const currentMonthlySalary = currentSalary / MONTHS;
   const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, currentMonthlySalary);
