@@ -29,43 +29,59 @@ const createChart = () => {
 
 const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
-  // Trying to make the hours/rate changeable
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
 
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
   const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
-  const deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
+
+  let deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
 
   // Creating their weekly salary
-  const weeklySalary = Math.round(hours * rate);
+  let weeklySalary = Math.round(hours * rate);
 
-  const annualSalary = Math.round(weeklySalary * 52);
+  let annualSalary = Math.round(weeklySalary * 52);
 
   console.log(`Annual ${annualSalary}`);
-<<<<<<< HEAD
-  const monthlySalary = annualSalary / 12;
+  let monthlySalary = annualSalary / 12;
   console.log(`Monthly Salary ${monthlySalary}`);
-=======
-  const monthlySalary = Math.round(annualSalary / 12);
-  console.log(`Monthly Salary  ${monthlySalary}`);
+  deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending)));
+  annualSalary = 0;
+  if (state.ui.values.hourlyOrSalaryRadio === 'Hourly') {
+    // Trying to make the hours/rate changeable
+    // Creating their weekly salary using hourly wage
+    weeklySalary = Math.round(hours * rate);
+    annualSalary = Math.round(weeklySalary * 52);
+    console.log(`Annual ${annualSalary}`);
+    monthlySalary = Math.round(annualSalary / 12);
+    console.log(`Monthly Salary  ${monthlySalary}`);
+    state.ui.values.currentAnnualIncomeInput = annualSalary;
+  } else {
+    console.log('Bleh');
+  }
+  let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, annualSalary);
+  console.log(federalTaxBracket);
+  let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', annualSalary);
+  console.log(stateTaxBracket);
 
->>>>>>> 673b3d85f30081786db8ad281d9a963762a7c44a
   const initialFunds = state.ui.values.networthInput || 0;
   const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
 
-  const moneyLeftPerYear = state.ui.values.currentAnnualIncomeInput - deductions || 0;
+  const moneyLeftPerYear = currentAnnualIncome - deductions || 0;
 
   const careerId = state.ui.values.careerInput || '';
   const careerData = createCareerData(careerId);
   const currentSalary = isInCareer(age, careerData.educationLevel) ? careerData.startingCareerSalary : currentAnnualIncome;
   // currentSalary -= state.ui.values.foodSpending;
-  let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, careerData.startingCareerSalary);
-  let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', careerData.startingCareerSalary);
+  // let federalTaxBracket = getFederalTaxBracket(TAX_INFO.INDV, careerData.startingCareerSalary);
+  // let stateTaxBracket = getStateTaxBracket(TAX_INFO.INDV, 'WI', careerData.startingCareerSalary);
 
-  const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, currentSalary);
-  let monthly = R.times(calcMonthlyData(initialFunds, currentSalary, federalTaxBracket, stateTaxBracket), MONTHS);
+  const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
+  console.log(netIncome);
+  let monthly = Math.round(netIncome / 12);
+  // let monthly = R.times(calcMonthlyData(initialFunds, annualSalary, federalTaxBracket, stateTaxBracket), MONTHS);
+  // console.log('This is monthly ', monthly);
   let money = [
     {
       age,

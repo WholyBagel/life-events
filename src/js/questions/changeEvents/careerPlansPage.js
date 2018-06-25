@@ -3,7 +3,7 @@ import R from 'ramda';
 import $ from 'jquery';
 import CONSTANTS from '../constants';
 import pages from '../pages';
-import { addOrUpdateInfo } from './util';
+import { addOrUpdateInfo, updateHeroes } from './util';
 
 const { OCCUPATIONAL_DATA, EDUCATION_LEVELS } = CONSTANTS;
 const { CAREER_PLANS_PAGE } = CONSTANTS.IDs.PAGE_IDS;
@@ -17,7 +17,6 @@ export default {
 
     const STARTING_SALARY_KEY = 'Starting Salary';
     const STARTING_SALARY_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].salary;
-    // const STARTING_FOOD_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].food;
 
     const infoItems = [
       {
@@ -28,10 +27,6 @@ export default {
         key: STARTING_SALARY_KEY,
         val: STARTING_SALARY_VAL
       }
-      // {
-      //   key: 'food',
-      //   val: STARTING_FOOD_VAL
-      // }
     ];
     addOrUpdateInfo(infoItems);
 
@@ -90,11 +85,27 @@ export default {
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT] = Number.isNaN(value) ? 0 : value;
     const rate = state.calculateFunds();
     state.data = { ...state.data, rate };
+
+    state.ui[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT] = (value);
+
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+
+    updateHeroes();
   },
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]: (e) => {
     const value = parseInt(e.target.value, 10);
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT] = Number.isNaN(value) ? 0 : value;
     const hours = state.calculateFunds();
     state.data = { ...state.data, hours };
+
+    state.ui[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT] = (value);
+
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+
+    updateHeroes();
   }
 };
