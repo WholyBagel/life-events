@@ -20,12 +20,12 @@
 						{{subtitle2}}
 					</p>
 					{{/if}} {{#each questions}} {{#compare type "===" "text"}}
-					<div class="md-text-field with-floating-label" >
+					<div class="md-text-field with-floating-label" style="{{#unless show}}display: none;{{/unless}}">
 						<input type="{{type}}" id="{{id}}" required style="font-size: 1.5rem; height: 3rem; width: 24vw;" placeholder=""></input>
 						<label for="{{id}}">{{placeholder}}</label>
 					</div>
 					{{/compare}} {{#compare type "===" "select-dropdown"}}
-					<div class="uitk-select md-text-field with-floating-label" style="margin-top: 4rem; width: 24vw">
+					<div class="uitk-select md-text-field with-floating-label" style="{{#unless show}}display: none;{{/unless}}margin-top: 4rem; width: 24vw">
 						<input id="{{id}}" type="text" class="select-input" readonly="true" placeholder="{{placeholder}}" required>
 						<span class="select-arrow"></span>
 						<ul class="select-dropdown">
