@@ -1,7 +1,7 @@
 import R from 'ramda';
 // import finance from 'financejs'
-// import $ from 'jquery'
-import d3 from 'd3';
+import $ from 'jquery';
+import Chart from 'chart.js';
 // import d3Axis from 'd3-axis'
 import CONSTANTS from './questions/constants';
 import { STARTING_SALARY_VAL } from './questions/changeEvents/careerPlansPage';
@@ -10,22 +10,47 @@ const {
   OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO, DEFAULT_RATE, DEFAULT_HOURS, IDs
 } = CONSTANTS;
 const { QUESTION_IDS, PAGE_IDS } = IDs;
-const { LIFESTYLE_PLANS_PAGE, CAREER_PLANS_PAGE } = PAGE_IDS;
+const { LIFESTYLE_PLANS_PAGE, CAREER_PLANS_PAGE, SUMMARY_PLANS_PAGE } = PAGE_IDS;
+
 const { TAX_BRACKETS } = TAX_INFO;
 const MONTHS = 12;
 
 const createChart = () => {
-  const scale = d3.scaleLinear()
-    .domain([10, 130])
-    .range([0, 960]);
-  const axis = d3.axisLeft(scale);
-  d3.select('.chart')
-    .append('svg')
-    .attr('width', 1000)
-    .attr('height', 30)
-    .append('g')
-    .attr('transform', 'translate(0,30)')
-    .call(axis);
+  $(`#${SUMMARY_PLANS_PAGE}`).html('<div class="chart"> <canvas id="myChart" width="400" height="400"></canvas> </div>');
+  const ctx = document.getElementById('myChart');
+  const myChart = new Chart(ctx, { // eslint-disable-line
+    type: 'doughnut',
+    data: {
+      labels: ['Money Left This Year', 'Money Spent On Food', 'Money Spent On Transportation', 'Money Spent On Hobbies'],
+      datasets: [{
+        label: '# of Votes',
+        data: [state.data.moneyLeftCurrentYear, (state.ui.values.foodSliderInput * 52), (state.ui.values.transportationSliderInput * 12), (state.ui.values.hobbiesSliderInput * 12)],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Your Financial Life'
+      }
+    }
+  });
 };
 
 const calculateFunds = () => {
@@ -67,11 +92,16 @@ const calculateFunds = () => {
 
   // state.ui.values.currentAnnualIncomeInput = annualSalary;
   const initialFunds = state.ui.values.networthInput || 0;
+
   const currentAnnualIncome = annualSalary || 0;
   const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
-  console.log('taxed', netIncome);
+  
   let monthly = Math.round(netIncome / 12);
-  const moneyLeftPerYear = netIncome - deductions || 0;
+  const moneyLeftCurrentYear = netIncome - deductions || 0;
+
+  const currentAnnualIncome = state.ui.values.currentAnnualIncomeInput || 0;
+
+  state.data.moneyLeftCurrentYear = currentAnnualIncome - deductions || 0;
 
   const careerId = state.ui.values.careerInput || '';
   const careerData = createCareerData(careerId);
@@ -87,7 +117,6 @@ const calculateFunds = () => {
       age,
       currentAnnualSalary: currentSalary,
       netAnnualIncome: netIncome,
-      moneyLeftPerYear,
       monthly,
       totalNetworth: initialFunds + netIncome,
       foodSpending,
