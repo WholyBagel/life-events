@@ -7,7 +7,7 @@ import { navigateForward, navigateBackward, navigateToAPage } from '../../../nav
 // const { LIFESTYLE_PLANS_PAGE } = PAGE_IDS;
 
 export const updateHeroes = () => {
-  const hero1Value = state.data.financialData[0].moneyLeftPerYear;
+  const hero1Value = state.data.moneyLeftCurrentYear;
 
   let moneyLeft = Math.round(hero1Value);
   let monthlyMoney = moneyLeft / 12;
