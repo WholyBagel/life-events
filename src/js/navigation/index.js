@@ -13,7 +13,7 @@ const showAndHideLowerNav = (pageIndex, numberOfPages) => {
 
 const highlightSideNav = (page, show) => {
   // show ? $(`#nav-${page.id}`).parent().addClass('active') : $(`#nav-${page.id}`).parent().removeClass('active')
-  show ? $(`#nav-${page.id}`).css({ 'background-color': '#16b161', color: 'white' }) : $(`#nav-${page.id}`).css({ 'background-color': 'transparent', color: '#9c9c9c' });
+  show ? $(`#nav-${page.id}`).css({ 'background-color': '#00a9df', color: 'white' }) : $(`#nav-${page.id}`).css({ 'background-color': '#01244A', color: 'white' });
 };
 
 const updatePages = (pages, pageIndex) => (pages || []).map((page, i) => {
