@@ -15,7 +15,7 @@ const welcomePage = {
   id: WELCOME_PAGE,
   nav: 'Welcome',
   title: 'Welcome',
-  subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-beingx.',
+  subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-being.',
   subtitle2: 'Click on the Green Arrow to Begin',
   show: true
 };
@@ -178,12 +178,30 @@ const otherPlansPage = {
   questions: [
     {
       id: QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS,
-      placeholder: 'How much will you or do you have in student loans?',
+      placeholder: 'How much do you pay in student loans per month?',
       show: false,
       info: 'StudentLoans',
       type: 'text',
-      required: true
-      // changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].HOUR_RATE_TEXT]
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS]
+    },
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING,
+      placeholder: 'How much do you pay for housing per month?',
+      show: false,
+      info: 'Housing',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING]
+    },
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES,
+      placeholder: 'How much do you spend in utilities per month?',
+      show: false,
+      info: 'Utilities',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES]
     }
   ]
 };
