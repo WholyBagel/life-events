@@ -148,11 +148,11 @@ const lifestylePage = {
       label: 'Hobbies',
       show: true,
       text: 'How much do you spend on your hobbies and entertainment per month?',
-      info: 'Children',
+      info: 'Hobbies',
       type: 'range',
       min: '0',
-      max: '800',
-      value: '400',
+      max: '500',
+      value: '250',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
     },
     {
@@ -163,8 +163,8 @@ const lifestylePage = {
       info: 'Transportation',
       type: 'range',
       min: '0',
-      max: '1100',
-      value: '595',
+      max: '1000',
+      value: '500',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }
   ]
