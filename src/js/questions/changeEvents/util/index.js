@@ -9,6 +9,12 @@ import { navigateForward, navigateBackward, navigateToAPage } from '../../../nav
 export const updateHeroes = () => {
   const hero1Value = state.data.moneyLeftCurrentYear;
 
+  if (hero1Value > 0) {
+    $('.grab').html('It is greater than 0');
+  } else {
+    $('.grab').html('It is lesseerererererere than 0');
+  }
+
   let moneyLeft = Math.round(hero1Value);
   let monthlyMoney = moneyLeft / 12;
   let weeklyMoney = moneyLeft / 52;

@@ -4,7 +4,7 @@ import { setInputEvents, selectInputClickEvent } from './helpers';
 import changeEvents from './changeEvents';
 
 const {
-  WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, OTHER_PLANS_PAGE, SUMMARY_PLANS_PAGE
+  WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, OTHER_PLANS_PAGE, SUMMARY_PLANS_PAGE, SUGGESTION_PLANS_PAGE
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 const {
@@ -233,6 +233,24 @@ const summaryPlansPage = {
   required: true
 
 };
+const suggestionPlansPage = {
+  id: SUGGESTION_PLANS_PAGE,
+  nav: 'Suggestions',
+  title: 'Here are some tips',
+  show: false,
+  required: true,
+  subtile: 'Here are some tips',
+  questions: [
+    {
+      id: QUESTION_IDS[SUGGESTION_PLANS_PAGE].END,
+      show: true,
+      info: 'END',
+      IwanttoWork: 'Hello',
+      type: 'end',
+      required: true
+    }
+  ]
+};
 
 const pages = [
   welcomePage,
@@ -240,7 +258,8 @@ const pages = [
   careerPlansPage,
   lifestylePage,
   otherPlansPage,
-  summaryPlansPage
+  summaryPlansPage,
+  suggestionPlansPage
 ];
 
 export { setInputEvents, selectInputClickEvent };

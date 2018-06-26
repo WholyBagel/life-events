@@ -50,7 +50,17 @@
 						<span id="{{id}}-value" style="display: block; margin: auto; text-align:center; margin-top:5%;">{{value}}</span>
 						
 					</div>
-					{{/compare}} {{/each}}
+					{{/compare}} 
+					
+					 {{#compare type "===" "end"}}
+					 
+					<div id="{{id}}" class="grab">{{IwanttoWork}}</div>
+					{{log this}}
+
+					{{/compare}}
+					
+					
+					{{/each}}
 					
 				</div>
 				{{/each }}

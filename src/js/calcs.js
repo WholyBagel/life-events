@@ -29,17 +29,21 @@ const createChart = () => {
   const myChart = new Chart(ctx, { // eslint-disable-line
     type: 'doughnut',
     data: {
-      labels: ['Money Left This Year', 'Money Spent On Food', 'Money Spent On Transportation', 'Money Spent On Hobbies'],
+      labels: ['Money Left This Year', 'Food', 'Transportation', 'Hobbies', 'Student Loans', 'Housing', 'Utilities', 'Insurance', 'Miscellaneous'],
       datasets: [{
         label: '# of Votes',
-        data: [money, (state.ui.values.foodSliderInput * 52), (state.ui.values.transportationSliderInput * 12), (state.ui.values.hobbiesSliderInput * 12)],
+        data: [money, (state.ui.values.foodSliderInput * 52), (state.ui.values.transportationSliderInput * 12), (state.ui.values.hobbiesSliderInput * 12), (state.ui.values.studentLoansInput * 12), state.ui.values.housingInput * 12, state.ui.values.utilitiesInput * 12, state.ui.values.insuranceInput * 12, state.ui.values.otherInput * 12],
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(54, 162, 235, 0.6)',
           'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(255, 159, 64, 0.6)',
+          // new colors below
+          'rgba(146, 36, 40, 0.6)',
+          'rgba(107, 76, 154, 0.6)',
+          'rgba(148, 139, 61, 0.6)'
         ],
         borderColor: [
           'rgba(255,99,132,1)',
@@ -47,7 +51,11 @@ const createChart = () => {
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(255, 159, 64, 1)',
+          // new colors below
+          'rgba(146, 36, 40, 0.6)',
+          'rgba(107, 76, 154, 0.6)',
+          'rgba(148, 139, 61, 0.6)'
         ],
         borderWidth: 1
       }]
@@ -79,9 +87,8 @@ const calculateFunds = () => {
   // Creating their weekly salary
   let weeklySalary = Math.round(hours * rate);
   let annualSalary = Math.round(weeklySalary * 52) || 0;
-  
+
   const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending) + Number(studentLoansSpending) + Number(housingSpending) + Number(utilitiesSpending) + Number(insuranceSpending) + Number(otherSpending)));
-  
 
   if (state.ui.values.hourlyOrSalaryRadio === 'Hourly') {
     // Trying to make the hours/rate changeable
