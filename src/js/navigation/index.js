@@ -46,11 +46,14 @@ const navigateForward = () => {
   const { currentPage } = state.ui.navigation;
   const { pages } = state.ui;
   const nextPage = currentPage >= pages.length - 1 ? pages.length - 1 : currentPage + 1;
+  console.log(currentPage);
+  if (currentPage === pages.length - 1) state.createChart();
   // const newPages = state.ui.pages.map((page, i) => {
   //     let show = i === nextPage ? true : false
   //     $(`#${page.id}`).css("display", show ? 'block' : 'none');
   //     return { ...page, show }
   // })
+
   const newPages = updatePages(state.ui.pages, nextPage);
   const newState = {
     ...state,

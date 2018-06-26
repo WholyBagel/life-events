@@ -36,10 +36,11 @@
 						<label>{{label}}</label>
 					</div>
 					{{/compare}}{{#compare type "===" "radio"}}
-					<div id="{{id}}" class="md-multi-ctrl-field " style="{{#unless show}}display: none;{{/unless}}">
+					<div id="{{id}}" class="md-multi-ctrl-field toggle" style="{{#unless show}}display: none;{{/unless}}">
 						{{#each values}}
-						<input id="{{id}}" name="{{../id}}" type="{{../type}}" checked={{default}}>
+						<input id="{{id}}" class="sizeWeight" name="{{../id}}" type="{{../type}}" checked={{default}}>
 						<label for="{{id}}">{{text}}</label>
+						
 						{{/each}}
 					</div>
 					{{/compare}} {{#compare type "===" "range"}}
