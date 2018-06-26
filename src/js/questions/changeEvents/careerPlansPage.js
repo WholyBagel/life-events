@@ -10,31 +10,15 @@ const { CAREER_PLANS_PAGE } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 export default {
   [QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN]: (careerId) => {
-    state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN] = careerId;
+    // state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN] = careerId;
+    // state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN] = state.data.netIncome;
     state.ui.values.info[pages[2].questions[0].info] = careerId;
-
     const index = CONSTANTS.OCCUPATIONAL_DATA.findIndex(element => element.id === careerId);
-
-    const STARTING_SALARY_KEY = 'Starting Salary';
     const STARTING_SALARY_VAL = CONSTANTS.OCCUPATIONAL_DATA[index].salary;
     state.data[QUESTION_IDS[CAREER_PLANS_PAGE].CAREER_DROPDOWN] = STARTING_SALARY_VAL;
-    console.log('SCOTT SAID TO CONSOLE OUT THE VALUE: ', STARTING_SALARY_VAL);
-    const infoItems = [
-      {
-        key: pages[2].questions[0].info,
-        val: CONSTANTS.OCCUPATIONAL_DATA[index].text
-      },
-      {
-        key: STARTING_SALARY_KEY,
-        val: STARTING_SALARY_VAL
-      }
-    ];
-    addOrUpdateInfo(infoItems);
 
     const financialData = state.calculateFunds();
-
     const careerData = R.filter(career => career.id === careerId, OCCUPATIONAL_DATA)[0];
-
     const additionalSchoolingRequired = [
       EDUCATION_LEVELS.SOME_COL_NO_DEG,
       EDUCATION_LEVELS.ASSC_DEG,
@@ -51,6 +35,18 @@ export default {
     }
 
     state.data = { ...state.data, financialData };
+    console.log('random thing working with', state.data.financialData[0].netAnnualIncome);
+    const infoItems = [
+      {
+        key: 'Base Salary',
+        val: CONSTANTS.OCCUPATIONAL_DATA[index].salary
+      },
+      {
+        key: 'Taxed Salary',
+        val: state.data.financialData[0].netAnnualIncome
+      }
+    ];
+    addOrUpdateInfo(infoItems);
     updateHeroes();
   },
 
@@ -77,7 +73,7 @@ export default {
       // careerPlansPage[questions[id: ]].toggle();
     } else {
       $('#careerInput').parent().show();
-      $('#edu_Private').parent().show();
+      $('#edu_Private').parent().hide();
       $('#hourlyRateInput').parent().hide();
       $('#hoursWeeklyInput').parent().hide();
     }
@@ -93,7 +89,17 @@ export default {
     const financialData = state.calculateFunds();
 
     state.data = { ...state.data, financialData };
-
+    const infoItems = [
+      {
+        key: 'Base Salary',
+        val: state.data.financialData[0].currentAnnualSalary
+      },
+      {
+        key: 'Taxed Salary',
+        val: state.data.financialData[0].netAnnualIncome
+      }
+    ];
+    addOrUpdateInfo(infoItems);
     updateHeroes();
   },
   [QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]: (e) => {
@@ -107,7 +113,17 @@ export default {
     const financialData = state.calculateFunds();
 
     state.data = { ...state.data, financialData };
-
+    const infoItems = [
+      {
+        key: 'Base Salary',
+        val: state.data.financialData[0].currentAnnualSalary
+      },
+      {
+        key: 'Taxed Salary',
+        val: state.data.financialData[0].netAnnualIncome
+      }
+    ];
+    addOrUpdateInfo(infoItems);
     updateHeroes();
   }
   /* [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]: (e) => {

@@ -4,7 +4,7 @@ import $ from 'jquery';
 import Chart from 'chart.js';
 // import d3Axis from 'd3-axis'
 import CONSTANTS from './questions/constants';
-import { STARTING_SALARY_VAL } from './questions/changeEvents/careerPlansPage';
+// import { STARTING_SALARY_VAL } from './questions/changeEvents/careerPlansPage';
 
 const {
   OCCUPATIONAL_DATA, EDUCATIONAL_DATA, DEFAULT_AGE, DEFAULT_COLLEGE_START_AGE, DEFAULT_RETIREMENT_AGE, DEFAULT_COLA_ADJ, TAX_INFO, DEFAULT_RATE, DEFAULT_HOURS, IDs
@@ -57,14 +57,12 @@ const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
-
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
   const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
 
   let deductions = (52 * (Number(foodSpending) + Number(hobbySpending) + Number(transportationSpending)));
-  const hi = STARTING_SALARY_VAL;
-  console.log(hi);
+
   // Creating their weekly salary
   let weeklySalary = Math.round(hours * rate);
   let annualSalary = Math.round(weeklySalary * 52);
@@ -94,7 +92,7 @@ const calculateFunds = () => {
   const initialFunds = state.ui.values.networthInput || 0;
 
   const currentAnnualIncome = annualSalary || 0;
-  const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
+  const netIncome = Math.round(calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary));
 
   let monthly = Math.round(netIncome / 12);
 
