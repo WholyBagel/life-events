@@ -72,12 +72,16 @@ const calculateFunds = () => {
   const studentLoansSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS] || 0;
   const housingSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING] || 0;
   const utilitiesSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES] || 0;
+  const insuranceSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE] || 0;
+  const otherSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER] || 0;
   console.log(studentLoansSpending, 'studentLoansSpending');
-  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending) + Number(studentLoansSpending) + Number(housingSpending) + Number(utilitiesSpending)));
 
   // Creating their weekly salary
   let weeklySalary = Math.round(hours * rate);
   let annualSalary = Math.round(weeklySalary * 52) || 0;
+  
+  const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending) + Number(studentLoansSpending) + Number(housingSpending) + Number(utilitiesSpending) + Number(insuranceSpending) + Number(otherSpending)));
+  
 
   if (state.ui.values.hourlyOrSalaryRadio === 'Hourly') {
     // Trying to make the hours/rate changeable
@@ -122,7 +126,9 @@ const calculateFunds = () => {
       transportationSpending,
       studentLoansSpending,
       housingSpending,
-      utilitiesSpending
+      utilitiesSpending,
+      insuranceSpending,
+      otherSpending
     }];
 
   const workingYears = R.takeLast(DEFAULT_RETIREMENT_AGE - age, R.times(R.identity, DEFAULT_RETIREMENT_AGE + 1));
@@ -147,7 +153,9 @@ const calculateFunds = () => {
       transportationSpending: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION],
       studentLoansSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS],
       housingSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING],
-      utilitiesSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES]
+      utilitiesSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES],
+      insuranceSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE],
+      otherSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]
     }];
   }, money)(workingYears);
 
