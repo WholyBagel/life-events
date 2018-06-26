@@ -21,7 +21,7 @@
 					</p>
 					{{/if}} {{#each questions}} {{#compare type "===" "text"}}
 					<div class="md-text-field with-floating-label" style="{{#unless show}}display: none;{{/unless}}">
-						<input type="{{type}}" id="{{id}}" required style="font-size: 1.4rem; height: 3rem; width: 29vw;" placeholder=""></input>
+						<input type="{{type}}" id="{{id}}" required style="font-size: 1.4rem; height: 3rem; width: 38vw;" placeholder=""></input>
 						<label for="{{id}}">{{placeholder}}</label>
 					</div>
 					{{/compare}} {{#compare type "===" "select-dropdown"}}
@@ -66,11 +66,13 @@
 				{{/each }}
 			</div>
 			<div id="info" class="small-4 columns" style="background-color: #ffffff; text-align: center; height: 90%;">
-				<div class="" style="background-color: #fff; border-left: 3px solid #eeeeee; margin: 2vh; padding: 2vh; height: 100%;">
+				<div class="" id='scrolls'style="overflow: scroll; background-color: #fff; border-left: 3px solid #eeeeee; margin: 2vh; padding: 2vh; height: 100%;">
 					<ul class="keyval-chart key-columns-5 val-columns-7" id="info-table">
 						<li class="chart-head">
-							<span class="key">Selection</span>
-							<span class="val">Value</span>
+							<div class='scroll-pane'>
+								<span class="key">Selection</span>
+								<span class="val">Value</span>
+							</div>
 						</li>
 					</ul>
 				</div>
