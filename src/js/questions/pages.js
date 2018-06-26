@@ -15,8 +15,8 @@ const welcomePage = {
   id: WELCOME_PAGE,
   nav: 'Welcome',
   title: 'Welcome',
-  subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-beingx.',
-  subtitle2: 'Click on the Green Arrow to Begin',
+  subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-being.',
+  subtitle2: 'Click on the Navy Arrow to Begin',
   show: true
 };
 
@@ -158,7 +158,7 @@ const lifestylePage = {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION,
       label: 'Transportation',
       show: true,
-      text: 'How much do you spend on your transportation per month?',
+      text: 'How much do you spend on your transportation per month (gas, bus fees, auto loans, auto insurance, etc)?',
       info: 'Transportation',
       type: 'range',
       min: '0',
@@ -171,19 +171,56 @@ const lifestylePage = {
 const otherPlansPage = {
   id: OTHER_PLANS_PAGE,
   nav: 'Additional Info',
-  title: 'Here are some other important factors',
+  title: 'Here are some other important factors...',
   show: false,
   required: true,
   questions: [
     {
       id: QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS,
-      placeholder: 'How much will you or do you have in student loans?',
-      show: false,
+      placeholder: 'How much do you pay in student loans per month?',
+      show: true,
       info: 'StudentLoans',
       type: 'text',
-      required: true
-      // changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].HOUR_RATE_TEXT]
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS]
+    },
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING,
+      placeholder: 'How much do you pay for housing per month (rent, mortgage payment, etc)?',
+      show: true,
+      info: 'Housing',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING]
+    },
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES,
+      placeholder: 'How much do you spend in utilities per month (water, electricity, etc)?',
+      show: true,
+      info: 'Utilities',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES]
+    },
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE,
+      placeholder: 'How much do you spend on insurance per month (home, auto, life, etc)?',
+      show: true,
+      info: 'Insurance',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE]
+    },
+    {
+      id: QUESTION_IDS[OTHER_PLANS_PAGE].OTHER,
+      placeholder: 'How much do you spend on other miscellaneous expensives (pet, etc)?',
+      show: true,
+      info: 'Other',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]
     }
+
   ]
 };
 

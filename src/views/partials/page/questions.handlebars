@@ -21,7 +21,7 @@
 					</p>
 					{{/if}} {{#each questions}} {{#compare type "===" "text"}}
 					<div class="md-text-field with-floating-label" style="{{#unless show}}display: none;{{/unless}}">
-						<input type="{{type}}" id="{{id}}" required style="font-size: 1.5rem; height: 3rem; width: 24vw;" placeholder=""></input>
+						<input type="{{type}}" id="{{id}}" required style="font-size: 1.4rem; height: 3rem; width: 29vw;" placeholder=""></input>
 						<label for="{{id}}">{{placeholder}}</label>
 					</div>
 					{{/compare}} {{#compare type "===" "select-dropdown"}}
@@ -36,10 +36,11 @@
 						<label>{{label}}</label>
 					</div>
 					{{/compare}}{{#compare type "===" "radio"}}
-					<div id="{{id}}" class="md-multi-ctrl-field " style="{{#unless show}}display: none;{{/unless}}">
+					<div id="{{id}}" class="md-multi-ctrl-field toggle" style="{{#unless show}}display: none;{{/unless}}">
 						{{#each values}}
-						<input id="{{id}}" name="{{../id}}" type="{{../type}}" checked={{default}}>
+						<input id="{{id}}" class="sizeWeight" name="{{../id}}" type="{{../type}}" checked={{default}}>
 						<label for="{{id}}">{{text}}</label>
+						
 						{{/each}}
 					</div>
 					{{/compare}} {{#compare type "===" "range"}}
@@ -50,11 +51,6 @@
 						
 					</div>
 					{{/compare}} {{/each}}
-					 {{#compare type "===" "end"}}
-					<div id="{{id}}-attempt" type="{{type}}" class="" style="{{#unless show}}display: none;{{/unless}}">
-						<p>Try this here</p>	
-					</div>
-					{{/compare}}
 					
 				</div>
 				{{/each }}
