@@ -66,5 +66,39 @@ export default {
 
     state.data = { ...state.data, financialData };
     updateHeroes();
+  },
+  [QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE]: (e) => {
+    state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE] = e.target.value;
+    // $(`#${QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS}`).html(e.target.value);
+    const infoItems = [
+      {
+        key: 'Insurance',
+        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE]
+      }
+    ];
+    addOrUpdateInfo(infoItems);
+    state.ui[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE] = (e.target.value);
+
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+    updateHeroes();
+  },
+  [QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]: (e) => {
+    state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER] = e.target.value;
+    // $(`#${QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS}`).html(e.target.value);
+    const infoItems = [
+      {
+        key: 'Other',
+        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]
+      }
+    ];
+    addOrUpdateInfo(infoItems);
+    state.ui[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER] = (e.target.value);
+
+    const financialData = state.calculateFunds();
+
+    state.data = { ...state.data, financialData };
+    updateHeroes();
   }
 };
