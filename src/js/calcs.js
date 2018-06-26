@@ -75,14 +75,11 @@ const calculateFunds = () => {
   const otherSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER] || 0;
   console.log(studentLoansSpending, 'studentLoansSpending');
 
-
-
   // Creating their weekly salary
   let weeklySalary = Math.round(hours * rate);
   let annualSalary = Math.round(weeklySalary * 52) || 0;
-  
+
   const deductions = (52 * (Number(foodSpending))) + (12 * (Number(hobbySpending) + Number(transportationSpending) + Number(studentLoansSpending) + Number(housingSpending) + Number(utilitiesSpending) + Number(insuranceSpending) + Number(otherSpending)));
-  
 
   if (state.ui.values.hourlyOrSalaryRadio === 'Hourly') {
     // Trying to make the hours/rate changeable
