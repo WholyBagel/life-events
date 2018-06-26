@@ -50,7 +50,7 @@ const initialInfoPage = {
     {
       id: QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWN,
       label: 'states',
-      show: true,
+      show: false,
       placeholder: 'Choose a your state...',
       info: 'states',
       type: 'select-dropdown',
@@ -101,7 +101,7 @@ const careerPlansPage = {
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO],
       values: EDU_PUBLIC_PRIVATE_DATA
     },
-    // working on now
+
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
       placeholder: 'Rate per Hour',
@@ -111,7 +111,6 @@ const careerPlansPage = {
       required: true,
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]
     },
-    // this too
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
       placeholder: 'Hours per Week',

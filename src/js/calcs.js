@@ -65,7 +65,6 @@ const calculateFunds = () => {
   const age = state.ui.values.ageInput || DEFAULT_AGE;
   const hours = state.ui.values.hoursWeeklyInput || DEFAULT_HOURS;
   const rate = state.ui.values.hourlyRateInput || DEFAULT_RATE;
-
   const foodSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] || 0;
   const hobbySpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] || 0;
   const transportationSpending = state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] || 0;
@@ -75,6 +74,8 @@ const calculateFunds = () => {
   const insuranceSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE] || 0;
   const otherSpending = state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER] || 0;
   console.log(studentLoansSpending, 'studentLoansSpending');
+
+
 
   // Creating their weekly salary
   let weeklySalary = Math.round(hours * rate);
@@ -102,7 +103,7 @@ const calculateFunds = () => {
   const initialFunds = state.ui.values.networthInput || 0;
 
   const currentAnnualIncome = annualSalary || 0;
-  const netIncome = calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary);
+  const netIncome = Math.round(calcNetIncome({ federalTaxBracket, stateTaxBracket }, annualSalary));
 
   state.data.moneyLeftCurrentYear = netIncome - deductions || 0;
 
