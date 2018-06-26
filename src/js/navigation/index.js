@@ -30,7 +30,7 @@ function navigateToAPage () {
   const checkID = page => page.id === $(this)[0].attributes.pageid.value;
   const index = pages.findIndex(checkID);
   const newPages = updatePages(state.ui.pages, index);
-  if (index === pages.length - 1) state.createChart();
+  if (index === pages.length - 2) state.createChart();
   const newState = {
     ...state,
     ui: {
