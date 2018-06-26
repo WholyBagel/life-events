@@ -16,7 +16,7 @@ const welcomePage = {
   nav: 'Welcome',
   title: 'Welcome',
   subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-being.',
-  subtitle2: 'Click on the Green Arrow to Begin',
+  subtitle2: 'Click on the Navy Arrow to Begin',
   show: true
 };
 
