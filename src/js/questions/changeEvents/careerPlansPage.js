@@ -70,7 +70,6 @@ export default {
       $('#edu_Private').parent().hide();
       $('#hourlyRateInput').parent().show();
       $('#hoursWeeklyInput').parent().show();
-      // careerPlansPage[questions[id: ]].toggle();
     } else {
       $('#careerInput').parent().show();
       $('#edu_Private').parent().hide();
@@ -126,25 +125,5 @@ export default {
     addOrUpdateInfo(infoItems);
     updateHeroes();
   }
-  /* [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]: (e) => {
-    state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = e.target.value;
-    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD}-value`).html(e.target.value);
 
-    const infoItems = [
-      {
-        key: 'food',
-        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
-      }
-    ];
-    addOrUpdateInfo(infoItems);
-
-    state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = (e.target.value);
-
-    const financialData = state.calculateFunds();
-
-    state.data = { ...state.data, financialData };
-
-    updateHeroes();
-  }
-*/
 };
