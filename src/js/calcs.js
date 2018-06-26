@@ -20,17 +20,23 @@ const MONTHS = 12;
 const createChart = () => {
   $(`#${SUMMARY_PLANS_PAGE}`).html('<div class="chart"> <canvas id="myChart" width="400" height="400"></canvas> </div>');
   const ctx = document.getElementById('myChart');
+  let money = 0;
+  if (state.data.moneyLeftCurrentYear < 0) {
+    money = 0;
+  } else {
+    money = state.data.moneyLeftCurrentYear;
+  }
   const myChart = new Chart(ctx, { // eslint-disable-line
     type: 'doughnut',
     data: {
       labels: ['Money Left This Year', 'Money Spent On Food', 'Money Spent On Transportation', 'Money Spent On Hobbies'],
       datasets: [{
         label: '# of Votes',
-        data: [state.data.moneyLeftCurrentYear, (state.ui.values.foodSliderInput * 52), (state.ui.values.transportationSliderInput * 12), (state.ui.values.hobbiesSliderInput * 12)],
+        data: [money, (state.ui.values.foodSliderInput * 52), (state.ui.values.transportationSliderInput * 12), (state.ui.values.hobbiesSliderInput * 12)],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
           'rgba(75, 192, 192, 0.2)',
           'rgba(153, 102, 255, 0.2)',
           'rgba(255, 159, 64, 0.2)'
