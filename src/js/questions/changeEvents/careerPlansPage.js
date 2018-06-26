@@ -29,7 +29,7 @@ export default {
     ];
 
     if (R.contains(careerData.education, additionalSchoolingRequired)) {
-      $(`#${QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO}`).css('display', 'block');
+      $(`#${QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO}`).css('display', 'none');
     } else {
       $(`#${QUESTION_IDS[CAREER_PLANS_PAGE].EDUCATION_PUBLIC_PRIVATE_RADIO}`).css('display', 'none');
     }
@@ -46,6 +46,7 @@ export default {
         val: state.data.financialData[0].netAnnualIncome
       }
     ];
+
     addOrUpdateInfo(infoItems);
     updateHeroes();
   },
@@ -67,12 +68,11 @@ export default {
     state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] = e.target.id;
     if (state.ui.values[QUESTION_IDS[CAREER_PLANS_PAGE].HOURLY_OR_SALARY_RADIO] === 'Hourly') {
       $('#careerInput').parent().hide();
-      $('#edu_Private').parent().hide();
       $('#hourlyRateInput').parent().show();
       $('#hoursWeeklyInput').parent().show();
+      // careerPlansPage[questions[id: ]].toggle();
     } else {
       $('#careerInput').parent().show();
-      $('#edu_Private').parent().hide();
       $('#hourlyRateInput').parent().hide();
       $('#hoursWeeklyInput').parent().hide();
     }
