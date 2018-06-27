@@ -18,8 +18,8 @@ export default {
 
     const infoItems = [
       {
-        key: 'food',
-        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
+        key: 'Food',
+        val: `$${state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]}`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -58,8 +58,8 @@ export default {
     $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES}-value`).html(`$${e.target.value}`);
     const infoItems = [
       {
-        key: 'hobbies',
-        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
+        key: 'Hobbies',
+        val: `$${state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]}`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -77,8 +77,8 @@ export default {
     $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION}-value`).html(`$${e.target.value}`);
     const infoItems = [
       {
-        key: 'transportation',
-        val: state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
+        key: 'Transportation',
+        val: `$${state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]}`
       }
     ];
     addOrUpdateInfo(infoItems);

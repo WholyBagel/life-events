@@ -44,6 +44,14 @@ export default {
       {
         key: 'Taxed Salary',
         val: state.data.financialData[0].netAnnualIncome
+      },
+      {
+        key: 'Federal Tax',
+        val: `${state.data.financialData[0].federalTaxBracket.percent}%`
+      },
+      {
+        key: 'State Tax',
+        val: `${state.data.financialData[0].stateTaxBracket.percent}%`
       }
     ];
 
@@ -96,6 +104,14 @@ export default {
       {
         key: 'Taxed Salary',
         val: state.data.financialData[0].netAnnualIncome
+      },
+      {
+        key: 'Federal Tax',
+        val: `${state.data.financialData[0].federalTaxBracket.percent}%`
+      },
+      {
+        key: 'State Tax',
+        val: `${state.data.financialData[0].stateTaxBracket.percent}%`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -120,6 +136,14 @@ export default {
       {
         key: 'Taxed Salary',
         val: state.data.financialData[0].netAnnualIncome
+      },
+      {
+        key: 'Federal Tax',
+        val: `${state.data.financialData[0].federalTaxBracket.percent}%`
+      },
+      {
+        key: 'State Tax',
+        val: `${state.data.financialData[0].stateTaxBracket.percent}%`
       }
     ];
     addOrUpdateInfo(infoItems);

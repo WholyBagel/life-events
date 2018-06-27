@@ -24,7 +24,7 @@ const initialInfoPage = {
 
   id: INITIAL_PAGE,
   nav: 'Get Started',
-  title: "Let's start with where you are at...",
+  title: 'Getting to know you...',
   show: false,
   questions: [
     {
@@ -73,7 +73,7 @@ const initialInfoPage = {
 const careerPlansPage = {
   id: CAREER_PLANS_PAGE,
   nav: 'Career',
-  title: 'What are your aspirations...',
+  title: 'Current career...',
   show: false,
   questions: [
     {
