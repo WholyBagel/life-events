@@ -10,9 +10,9 @@ export const updateHeroes = () => {
   const hero1Value = state.data.moneyLeftCurrentYear;
 
   if (hero1Value > 0) {
-    $('.grab').html('It is greater than 0');
+    $('.grab').html('<div style="font-size: 4vh"><h1 style="margin-bottom:5%; font-size: 40px">Consider investing the money you have left.</h1> <p style="font-size: 20px; line-height: 150%;">If you invest money at a young age, it will compound over time and increase your net value.  To learn more to Consider saving your money in a special place for emergencies. You never know when one could occur and being prepared can go a long way and keep you from going into debt. Consider saving your money for a large purchase you plan to make in the future.</p> <a href="https://www.northwesternmutual.com/investments/" style="margin-top:5%;">Make Investments with NorthWesternMutual Here! </a></div>');
   } else {
-    $('.grab').html('It is lesseerererererere than 0');
+    $('.grab').html('<div style="font-size: 4vh"><h1 style="margin-bottom:5%;font-size: 40px">Being in debt is not fun or good but small changes can help to avoid debt.</h1> <p style="font-size: 20px; line-height: 150%;">Watch how often you go out to eat or get coffee and try to buy groceries that are on sale or use coupons. Try to pay for things in cash whenever possible. Paying in cash typically causes you to spend less money. Look at the part of our budget that you spend the most on and think about how you might be able to cut down.</p> <a href="https://www.northwesternmutual.com/financial-planning/" style="margin-top:5%;">Learn to Budget with NorthWesternMutual Here! </a> </div>');
   }
 
   let moneyLeft = Math.round(hero1Value);

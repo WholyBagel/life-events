@@ -14,7 +14,7 @@ export default {
 
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = e.target.value;
-    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD}-value`).html(e.target.value);
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD}-value`).html(`$${e.target.value}`);
 
     const infoItems = [
       {
@@ -24,7 +24,7 @@ export default {
     ];
     addOrUpdateInfo(infoItems);
 
-    state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = (e.target.value);
+    state.ui[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD] = (`$${e.target.value}`);
 
     const financialData = state.calculateFunds();
 
@@ -35,7 +35,7 @@ export default {
 
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN] = e.target.value;
-    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN}-value`).html(e.target.value);
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].CHILDREN}-value`).html(`$${e.target.value}`);
     const infoItems = [
       {
         key: 'children',
@@ -55,7 +55,7 @@ export default {
   // new work
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES] = e.target.value;
-    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES}-value`).html(e.target.value);
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES}-value`).html(`$${e.target.value}`);
     const infoItems = [
       {
         key: 'hobbies',
@@ -74,7 +74,7 @@ export default {
   },
   [QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]: (e) => {
     state.ui.values[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION] = e.target.value;
-    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION}-value`).html(e.target.value);
+    $(`#${QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION}-value`).html(`$${e.target.value}`);
     const infoItems = [
       {
         key: 'transportation',

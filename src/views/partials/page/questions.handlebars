@@ -46,15 +46,15 @@
 					{{/compare}} {{#compare type "===" "range"}}
 					<div id="{{id}}-slider" class="" style="{{#unless show}}display: none;{{/unless}}">
 						<p>{{text}}</p>
-						<input id="{{id}}" name="{{../id}}" type="{{type}}" min="{{min}}" max="{{max}}" style="display: block; margin: auto; text-align:center;">
-						<span id="{{id}}-value" style="display: block; margin: auto; text-align:center; margin-top:5%;">{{value}}</span>
+						<input id="{{id}}" name="{{../id}}" type="{{type}}" min="{{min}}" max="{{max}}" value="{{value}}" style="display: block; margin: auto; text-align:center; ">
+						<span id="{{id}}-value" style="display: block; margin: auto; text-align:center; margin-top:2%; margin-bottom:5%;">${{value}}</span>
 						
 					</div>
 					{{/compare}} 
 					
 					 {{#compare type "===" "end"}}
 					 
-					<div id="{{id}}" class="grab">{{IwanttoWork}}</div>
+					<div id="{{id}}" class="grab" style="text-align:center; ">{{IwanttoWork}}</div>
 					{{log this}}
 
 					{{/compare}}

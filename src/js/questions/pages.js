@@ -48,8 +48,8 @@ const initialInfoPage = {
     },
     {
       id: QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT,
-      placeholder: 'Networth',
-      info: 'Initial Net Worth',
+      placeholder: 'Name',
+      info: 'Name',
       type: 'text',
       required: true,
       show: false,
@@ -148,7 +148,7 @@ const lifestylePage = {
       type: 'range',
       min: '0',
       max: '200',
-      value: '90',
+      value: '0',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     },
     {
@@ -160,19 +160,19 @@ const lifestylePage = {
       type: 'range',
       min: '0',
       max: '500',
-      value: '250',
+      value: '0',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
     },
     {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION,
       label: 'Transportation',
       show: true,
-      text: 'How much do you spend on your transportation per month (gas, bus fees, auto loans, auto insurance, etc)?',
+      text: 'How much do you spend on your transportation per month (gas, bus fees, auto loans, etc)?',
       info: 'Transportation',
       type: 'range',
       min: '0',
       max: '1000',
-      value: '500',
+      value: '0',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }
   ]
@@ -243,7 +243,7 @@ const summaryPlansPage = {
 };
 const suggestionPlansPage = {
   id: SUGGESTION_PLANS_PAGE,
-  nav: 'Suggestions',
+  nav: 'Recommendations',
   title: 'Here are some tips',
   show: false,
   required: true,
