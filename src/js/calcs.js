@@ -134,7 +134,10 @@ const calculateFunds = () => {
       housingSpending,
       utilitiesSpending,
       insuranceSpending,
-      otherSpending
+      otherSpending,
+      federalTaxBracket,
+      stateTaxBracket
+
     }];
 
   const workingYears = R.takeLast(DEFAULT_RETIREMENT_AGE - age, R.times(R.identity, DEFAULT_RETIREMENT_AGE + 1));
@@ -161,7 +164,9 @@ const calculateFunds = () => {
       housingSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING],
       utilitiesSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES],
       insuranceSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE],
-      otherSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]
+      otherSpending: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER],
+      federalTaxBracket,
+      stateTaxBracket
     }];
   }, money)(workingYears);
 

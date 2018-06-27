@@ -16,8 +16,8 @@ export default {
     // $(`#${QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS}`).html(e.target.value);
     const infoItems = [
       {
-        key: 'studentLoans',
-        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS]
+        key: 'Student Loans',
+        val: `$${state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS]}`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -37,7 +37,7 @@ export default {
     const infoItems = [
       {
         key: 'Housing',
-        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING]
+        val: `$${state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].HOUSING]}`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -56,7 +56,7 @@ export default {
     const infoItems = [
       {
         key: 'Utilities',
-        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES]
+        val: `$${state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].UTILITIES]}`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -73,7 +73,7 @@ export default {
     const infoItems = [
       {
         key: 'Insurance',
-        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE]
+        val: `$${state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].INSURANCE]}`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -90,7 +90,7 @@ export default {
     const infoItems = [
       {
         key: 'Other',
-        val: state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]
+        val: `$${state.ui.values[QUESTION_IDS[OTHER_PLANS_PAGE].OTHER]}`
       }
     ];
     addOrUpdateInfo(infoItems);
