@@ -30,7 +30,7 @@ const initialInfoPage = {
     {
       id: QUESTION_IDS[INITIAL_PAGE].AGE_TEXT,
       placeholder: 'Age',
-      info: 'Starting age',
+      info: 'Age',
       type: 'text',
       required: true,
       show: true,
@@ -38,12 +38,21 @@ const initialInfoPage = {
 
     },
     {
+      id: QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT,
+      placeholder: 'Enter your name',
+      show: true,
+      info: 'Name',
+      type: 'text',
+      required: true,
+      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT]
+    },
+    {
       id: QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT,
       placeholder: 'Networth',
       info: 'Initial Net Worth',
       type: 'text',
       required: true,
-      show: true,
+      show: false,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT]
     },
 
@@ -104,7 +113,7 @@ const careerPlansPage = {
 
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
-      placeholder: 'Rate per Hour',
+      placeholder: 'Rate per Hour (Default 7.25)',
       show: false,
       info: 'Rate',
       type: 'text',
@@ -113,7 +122,7 @@ const careerPlansPage = {
     },
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
-      placeholder: 'Hours per Week',
+      placeholder: 'Hours per Week (Default 40)',
       show: false,
       info: 'Hours',
       type: 'text',

@@ -58,8 +58,26 @@ export default {
 
     updateHeroes(financialData);
   },
-  [QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWNN]: (e) => {
+  /* [QUESTION_IDS[INITIAL_PAGE].STATES_DROPDOWNN]: (e) => {
     console.log('state: ', e.target.value);
+  }
+  */
+  [QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT]: (e) => {
+    state.ui.values[QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT] = e.target.value;
+    console.log('hi');
+    const infoItems = [
+      {
+        key: 'Name',
+        val: state.ui.values[QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT]
+      }
+    ];
+    addOrUpdateInfo(infoItems);
+
+    // state.ui[QUESTION_IDS[OTHER_PLANS_PAGE].STUDENTLOANS] = (e.target.value);
+
+    // const financialData = state.calculateFunds();
+
+    // state.data = { ...state.data, financialData };
   }
 
 };
