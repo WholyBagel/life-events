@@ -4,6 +4,7 @@ export const LIFESTYLE_PLANS_PAGE = 'lifestylePlansPage';
 export const SUMMARY_PLANS_PAGE = 'summaryPlansPage';
 export const WELCOME_PAGE = 'welcomePage';
 export const OTHER_PLANS_PAGE = 'otherPage';
+export const SUGGESTION_PLANS_PAGE = 'suggestionPage';
 
 export const PAGE_IDS = {
   WELCOME_PAGE,
@@ -11,7 +12,8 @@ export const PAGE_IDS = {
   CAREER_PLANS_PAGE,
   LIFESTYLE_PLANS_PAGE,
   OTHER_PLANS_PAGE,
-  SUMMARY_PLANS_PAGE
+  SUMMARY_PLANS_PAGE,
+  SUGGESTION_PLANS_PAGE
 };
 
 export const QUESTION_IDS = {
@@ -19,7 +21,8 @@ export const QUESTION_IDS = {
   [INITIAL_PAGE]: {
     AGE_TEXT: 'ageInput',
     NETWORTH_TEXT: 'networthInput',
-    STATES_DROPDOWN: 'statesInput'
+    STATES_DROPDOWN: 'statesInput',
+    ENTER_NAME_TEXT: 'nameInput'
   },
   [CAREER_PLANS_PAGE]: {
     CAREER_DROPDOWN: 'careerInput',
@@ -44,7 +47,11 @@ export const QUESTION_IDS = {
   },
   [SUMMARY_PLANS_PAGE]: {
     FOUR01K_TEXT: '401KInput'
+  },
+  [SUGGESTION_PLANS_PAGE]: {
+    END: 'END'
   }
+
 };
 
 const IDs = {

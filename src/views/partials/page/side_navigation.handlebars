@@ -1,4 +1,4 @@
-<div id="side_navigation" class="small-2 columns" style="background-color: #a43a33; height: 100vh; padding-top: 2vh">
+<div id="side_navigation" class="small-2 columns" style="background-color: #002b49; height: 100vh; padding-top: 2vh">
 	<h3 style="color:white; text-align:center;">
 		<img src="https://ahalongview.ejoinme.org/Portals/3803/Users/088/16/9816/Northwestern_Mutual_2.jpg" alt="I'm sad" style="height: 8vh; width:auto; margin-bottom: 2vh">
 		<span style="align-content: center;">The Financial Budgetor</span>
@@ -6,11 +6,11 @@
 	<ul class="filter-nav vertical">
 		{{#each (getPages)}}{{#if @index}}
 		<li class="filter-nav-entry ">
-			<button class="nav-button" id="nav-{{id}}" pageid={{id}} style="color: white; background-color: #002b49">{{nav}}</button>
+			<button class="nav-button" id="nav-{{id}}" pageid={{id}} style="color: white; background-color: #002b49; border: 2px solid white">{{nav}}</button>
 		</li>
 		{{else}}
 		<li class="filter-nav-entry ">
-			<button class="nav-button" id="nav-{{id}}" style="background-color: #00a9df; color: white;" pageid={{id}}>{{nav}}</button>
+			<button class="nav-button" id="nav-{{id}}" style="background-color: #00a9df; color: white; border: 2px solid white" pageid={{id}}>{{nav}}</button>
 		</li>
 		{{/if}} {{/each}}
 	</ul>

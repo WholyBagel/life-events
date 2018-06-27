@@ -30,7 +30,8 @@ function navigateToAPage () {
   const checkID = page => page.id === $(this)[0].attributes.pageid.value;
   const index = pages.findIndex(checkID);
   const newPages = updatePages(state.ui.pages, index);
-  if (index === pages.length - 1) state.createChart();
+  console.log(index);
+  if (index === pages.length - 2) state.createChart();
   const newState = {
     ...state,
     ui: {
@@ -46,8 +47,10 @@ const navigateForward = () => {
   const { currentPage } = state.ui.navigation;
   const { pages } = state.ui;
   const nextPage = currentPage >= pages.length - 1 ? pages.length - 1 : currentPage + 1;
+
   console.log(currentPage);
-  if (currentPage === pages.length - 1) state.createChart();
+  console.log(pages.length - 2);
+  if (currentPage >= 2) state.createChart();
   // const newPages = state.ui.pages.map((page, i) => {
   //     let show = i === nextPage ? true : false
   //     $(`#${page.id}`).css("display", show ? 'block' : 'none');
@@ -76,6 +79,7 @@ const navigateBackward = () => {
   //     $(`#${page.id}`).css("display", show ? 'block' : 'none');
   //     return { ...page, show }
   // })
+  if (currentPage === 4) state.createChart();
   const newPages = updatePages(state.ui.pages, previousPage);
   const newState = {
     ...state,

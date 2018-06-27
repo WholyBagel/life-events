@@ -4,7 +4,7 @@ import { setInputEvents, selectInputClickEvent } from './helpers';
 import changeEvents from './changeEvents';
 
 const {
-  WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, OTHER_PLANS_PAGE, SUMMARY_PLANS_PAGE
+  WELCOME_PAGE, INITIAL_PAGE, CAREER_PLANS_PAGE, LIFESTYLE_PLANS_PAGE, OTHER_PLANS_PAGE, SUMMARY_PLANS_PAGE, SUGGESTION_PLANS_PAGE
 } = CONSTANTS.IDs.PAGE_IDS;
 const { QUESTION_IDS } = CONSTANTS.IDs;
 const {
@@ -30,7 +30,7 @@ const initialInfoPage = {
     {
       id: QUESTION_IDS[INITIAL_PAGE].AGE_TEXT,
       placeholder: 'Age',
-      info: 'Starting age',
+      info: 'Age',
       type: 'text',
       required: true,
       show: true,
@@ -38,12 +38,21 @@ const initialInfoPage = {
 
     },
     {
-      id: QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT,
-      placeholder: 'Networth',
-      info: 'Initial Net Worth',
+      id: QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT,
+      placeholder: 'Enter your name',
+      show: true,
+      info: 'Name',
       type: 'text',
       required: true,
-      show: true,
+      changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].ENTER_NAME_TEXT]
+    },
+    {
+      id: QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT,
+      placeholder: 'Name',
+      info: 'Name',
+      type: 'text',
+      required: true,
+      show: false,
       changeEvent: changeEvents[QUESTION_IDS[INITIAL_PAGE].NETWORTH_TEXT]
     },
 
@@ -104,7 +113,7 @@ const careerPlansPage = {
 
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
-      placeholder: 'Rate per Hour',
+      placeholder: 'Rate per Hour (Default 7.25)',
       show: false,
       info: 'Rate',
       type: 'text',
@@ -113,7 +122,7 @@ const careerPlansPage = {
     },
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
-      placeholder: 'Hours per Week',
+      placeholder: 'Hours per Week (Default 40)',
       show: false,
       info: 'Hours',
       type: 'text',
@@ -139,7 +148,7 @@ const lifestylePage = {
       type: 'range',
       min: '0',
       max: '200',
-      value: '90',
+      value: '0',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].FOOD]
     },
     {
@@ -151,19 +160,19 @@ const lifestylePage = {
       type: 'range',
       min: '0',
       max: '500',
-      value: '250',
+      value: '0',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].HOBBIES]
     },
     {
       id: QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION,
       label: 'Transportation',
       show: true,
-      text: 'How much do you spend on your transportation per month (gas, bus fees, auto loans, auto insurance, etc)?',
+      text: 'How much do you spend on your transportation per month (gas, bus fees, auto loans, etc)?',
       info: 'Transportation',
       type: 'range',
       min: '0',
       max: '1000',
-      value: '500',
+      value: '0',
       changeEvent: changeEvents[QUESTION_IDS[LIFESTYLE_PLANS_PAGE].TRANSPORTATION]
     }
   ]
@@ -232,6 +241,24 @@ const summaryPlansPage = {
   required: true
 
 };
+const suggestionPlansPage = {
+  id: SUGGESTION_PLANS_PAGE,
+  nav: 'Recommendations',
+  title: 'Here are some tips',
+  show: false,
+  required: true,
+  subtile: 'Here are some tips',
+  questions: [
+    {
+      id: QUESTION_IDS[SUGGESTION_PLANS_PAGE].END,
+      show: true,
+      info: 'END',
+      IwanttoWork: 'Hello',
+      type: 'end',
+      required: true
+    }
+  ]
+};
 
 const pages = [
   welcomePage,
@@ -239,7 +266,8 @@ const pages = [
   careerPlansPage,
   lifestylePage,
   otherPlansPage,
-  summaryPlansPage
+  summaryPlansPage,
+  suggestionPlansPage
 ];
 
 export { setInputEvents, selectInputClickEvent };
