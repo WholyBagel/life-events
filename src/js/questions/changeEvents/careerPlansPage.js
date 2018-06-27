@@ -39,19 +39,19 @@ export default {
     const infoItems = [
       {
         key: 'Base Salary',
-        val: CONSTANTS.OCCUPATIONAL_DATA[index].salary
+        val: `$${CONSTANTS.OCCUPATIONAL_DATA[index].salary}`
       },
       {
         key: 'Taxed Salary',
-        val: state.data.financialData[0].netAnnualIncome
+        val: `$${state.data.financialData[0].netAnnualIncome}`
       },
       {
         key: 'Federal Tax',
-        val: `${state.data.financialData[0].federalTaxBracket.percent}%`
+        val: `${state.data.financialData[0].federalTaxBracket.percent * 100}%`
       },
       {
         key: 'State Tax',
-        val: `${state.data.financialData[0].stateTaxBracket.percent}%`
+        val: `${state.data.financialData[0].stateTaxBracket.percent * 100}%`
       }
     ];
 
@@ -99,19 +99,19 @@ export default {
     const infoItems = [
       {
         key: 'Base Salary',
-        val: state.data.financialData[0].currentAnnualSalary
+        val: `$${state.data.financialData[0].currentAnnualSalary}`
       },
       {
         key: 'Taxed Salary',
-        val: state.data.financialData[0].netAnnualIncome
+        val: `$${state.data.financialData[0].netAnnualIncome}`
       },
       {
         key: 'Federal Tax',
-        val: `${state.data.financialData[0].federalTaxBracket.percent}%`
+        val: `${state.data.financialData[0].federalTaxBracket.percent * 100}%`
       },
       {
         key: 'State Tax',
-        val: `${state.data.financialData[0].stateTaxBracket.percent}%`
+        val: `${state.data.financialData[0].stateTaxBracket.percent * 100}%`
       }
     ];
     addOrUpdateInfo(infoItems);
@@ -131,19 +131,19 @@ export default {
     const infoItems = [
       {
         key: 'Base Salary',
-        val: state.data.financialData[0].currentAnnualSalary
+        val: `$${state.data.financialData[0].currentAnnualSalary}`
       },
       {
         key: 'Taxed Salary',
-        val: state.data.financialData[0].netAnnualIncome
+        val: `$${state.data.financialData[0].netAnnualIncome}`
       },
       {
         key: 'Federal Tax',
-        val: `${state.data.financialData[0].federalTaxBracket.percent}%`
+        val: `${state.data.financialData[0].federalTaxBracket.percent * 100}%`
       },
       {
         key: 'State Tax',
-        val: `${state.data.financialData[0].stateTaxBracket.percent}%`
+        val: `${state.data.financialData[0].stateTaxBracket.percent * 100}%`
       }
     ];
     addOrUpdateInfo(infoItems);

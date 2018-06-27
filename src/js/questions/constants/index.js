@@ -12,8 +12,8 @@ const DEFAULT_COLLEGE_START_AGE = 18;
 const DEFAULT_RETIREMENT_AGE = 65;
 const DEFAULT_DEATH_AGE = 80;
 const DEFAULT_COLA_ADJ = 0.02;
-const DEFAULT_HOURS = 40;
-const DEFAULT_RATE = 7.25;
+const DEFAULT_HOURS = 0;
+const DEFAULT_RATE = 0;
 // Get Average min wage for state later
 export default {
   IDs,

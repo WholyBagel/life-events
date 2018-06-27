@@ -113,7 +113,7 @@ const careerPlansPage = {
 
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT,
-      placeholder: 'Rate per Hour (Default 7.25)',
+      placeholder: 'Rate per Hour (Federal Minimum Wage: 7.25)',
       show: false,
       info: 'Rate',
       type: 'text',
@@ -123,7 +123,7 @@ const careerPlansPage = {
     },
     {
       id: QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT,
-      placeholder: 'Hours per Week (Default 40)',
+      placeholder: 'Hours per Week (Full time: 40)',
       show: false,
       info: 'Hours',
       type: 'text',
