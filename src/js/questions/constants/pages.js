@@ -21,7 +21,8 @@ export const QUESTION_IDS = {
   [INITIAL_PAGE]: {
     AGE_TEXT: 'ageInput',
     NETWORTH_TEXT: 'networthInput',
-    STATES_DROPDOWN: 'statesInput'
+    STATES_DROPDOWN: 'statesInput',
+    ENTER_NAME_TEXT: 'nameInput'
   },
   [CAREER_PLANS_PAGE]: {
     CAREER_DROPDOWN: 'careerInput',
