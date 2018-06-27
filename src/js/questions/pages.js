@@ -15,7 +15,7 @@ const welcomePage = {
   id: WELCOME_PAGE,
   nav: 'Welcome',
   title: 'Welcome',
-  subtitle: 'The Financial Calculator will help you determine your current financial well-being and suggest ways to improve your current financial well-being.',
+  subtitle: 'The Financial Budgetor will help you determine your current financial well-being and suggest ways to improve your current financial well-being.',
   subtitle2: 'Click on the Navy Arrow to Begin',
   show: true
 };
@@ -117,6 +117,7 @@ const careerPlansPage = {
       show: false,
       info: 'Rate',
       type: 'text',
+      margin: '15%',
       required: true,
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOUR_RATE_TEXT]
     },
@@ -126,6 +127,7 @@ const careerPlansPage = {
       show: false,
       info: 'Hours',
       type: 'text',
+      margin: '15%',
       required: true,
       changeEvent: changeEvents[QUESTION_IDS[CAREER_PLANS_PAGE].HOURS_WEEKLY_TEXT]
     }
