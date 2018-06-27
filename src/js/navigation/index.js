@@ -19,6 +19,7 @@ const highlightSideNav = (page, show) => {
 const updatePages = (pages, pageIndex) => (pages || []).map((page, i) => {
   const show = i === pageIndex;
   const numberOfPages = pages.length - 1;
+  state.createChart();
   showPageAndTitle(page, show);
   showAndHideLowerNav(pageIndex, numberOfPages);
   highlightSideNav(page, show);
@@ -48,9 +49,9 @@ const navigateForward = () => {
   const { pages } = state.ui;
   const nextPage = currentPage >= pages.length - 1 ? pages.length - 1 : currentPage + 1;
 
-  console.log(currentPage);
-  console.log(pages.length - 2);
-  if (currentPage >= 2) state.createChart();
+  console.log(state);
+
+  if (currentPage === 5)state.createChart();
   // const newPages = state.ui.pages.map((page, i) => {
   //     let show = i === nextPage ? true : false
   //     $(`#${page.id}`).css("display", show ? 'block' : 'none');
@@ -79,7 +80,6 @@ const navigateBackward = () => {
   //     $(`#${page.id}`).css("display", show ? 'block' : 'none');
   //     return { ...page, show }
   // })
-  if (currentPage === 4) state.createChart();
   const newPages = updatePages(state.ui.pages, previousPage);
   const newState = {
     ...state,
